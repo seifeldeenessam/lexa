@@ -1,0 +1,54 @@
+name: lexa
+description: A mobile app for managing bills, cards and more financial stuff.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  phosphor_flutter: ^1.4.0
+  flutter_svg: ^1.1.5
+  flutter_native_splash: ^2.2.12
+  shared_preferences: ^2.0.15
+  carousel_slider: ^4.1.1
+  http: ^0.13.5
+  flip_card: ^0.6.0
+  sqflite: ^2.2.0+3
+  intl: ^0.17.0
+  camera: ^0.10.3
+  path_provider: ^2.0.11
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/
+    - assets/images/avatars/
+    - assets/images/categories/
+    - assets/images/flags/
+    - assets/svgs/branding/
+    - assets/svgs/illustrations/
+  fonts:
+    - family: ReadexPro
+      fonts:
+        - asset: assets/fonts/ReadexPro/ReadexPro-Regular.ttf
+          style: normal
+          weight: 400
+        - asset: assets/fonts/ReadexPro/ReadexPro-Medium.ttf
+          style: normal
+          weight: 500
+        - asset: assets/fonts/ReadexPro/ReadexPro-SemiBold.ttf
+          style: normal
+          weight: 600
+flutter_native_splash:
+  background_image: 'assets/images/branding/splash-background.png'
+  image: 'assets/images/branding/splash-image.png'
+  branding: 'assets/images/branding/splash-branding.png'
+  android: true
+  ios: true
+  android_gravity: fill
+  ios_content_mode: scaleToFill

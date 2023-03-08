@@ -1,4 +1,4 @@
-# Z Wallet Mobile App
+# Lexa Wallet Mobile App
 
 ## Main Features
 
@@ -23,7 +23,7 @@
 
 Global
 
-- [] Update all screens inputs to the new ones
+- [ ] Update all screens inputs to the new ones
 - [x] Add introduction carousel
 - [ ] Optimize `phone_input.dart`
 - [x] Change modal size to fit it's contents

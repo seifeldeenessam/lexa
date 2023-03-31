@@ -17,31 +17,29 @@ class AccountsFillScreenViewModel {
     return currenciesList;
   }
 
-  void submit(BuildContext context, Map<String, dynamic> accountValues) async {
+  void submit(BuildContext context, GlobalKey<FormState> formkey, Map<String, dynamic> accountValues) async {
     final LocalDatabase localStorage = LocalDatabase();
+    List<Map<String, dynamic>> value = await localStorage.read("accounts");
 
-    await localStorage.read("accounts").then((value) async {
-      if (value.isEmpty) {
-        if (accountValues["cash"] == null || accountValues["banks"] == null || accountValues["savings"] == null) {
-          showSnackBar(context, false, "Fill all fields");
-        }
-
-        Map<String, dynamic> json = {
-          'cash': accountValues["cash"],
-          'banks': accountValues["banks"],
-          'savings': accountValues["savings"],
-          'cashCurrency': accountValues["cashCurrency"],
-          'banksCurrency': accountValues["banksCurrency"],
-          'savingsCurrency': accountValues["savingsCurrency"],
-        };
-
-        await localStorage.insertAccountsValues(json).then((_) {
-          showSnackBar(context, true, "Accounts are successfully set");
-          Future.delayed(const Duration(seconds: 2), () => Navigator.pushNamed(context, '/navigator'));
-        });
-      } else {
-        Navigator.pushNamed(context, '/navigator');
-      }
-    });
+    if (context.mounted) {
+      if (value.isNotEmpty) Navigator.pushNamed(context, '/navigator');
+      if (formkey.currentState!.validate()) setAccountsValues(context, accountValues, localStorage);
+    }
   }
+}
+
+void setAccountsValues(BuildContext context, Map<String, dynamic> accountValues, LocalDatabase localStorage) async {
+  Map<String, dynamic> json = {
+    'cash': accountValues["cash"],
+    'banks': accountValues["banks"],
+    'savings': accountValues["savings"],
+    'cashCurrency': accountValues["cashCurrency"],
+    'banksCurrency': accountValues["banksCurrency"],
+    'savingsCurrency': accountValues["savingsCurrency"],
+  };
+
+  await localStorage.insertAccountsValues(json).then((_) {
+    showSnackBar(context, true, "Accounts are successfully set");
+    Future.delayed(const Duration(seconds: 2), () => Navigator.pushNamed(context, '/navigator'));
+  });
 }

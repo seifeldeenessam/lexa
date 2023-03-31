@@ -1,5 +1,8 @@
 import 'package:lexa/view/authentication/widgets/guiding_paragraph.dart';
 import 'package:lexa/view_model/theme/constants.dart';
+import 'package:lexa/view_model/validators/banks_account_validator.dart';
+import 'package:lexa/view_model/validators/cash_account_validator.dart';
+import 'package:lexa/view_model/validators/savings_account_validator.dart';
 import 'package:lexa/view_model/widgets/app_bar.dart';
 import 'package:lexa/view_model/functions/show_modal.dart';
 import 'package:lexa/view_model/models/authentication/accounts_fill_screen_view_model.dart';
@@ -15,6 +18,7 @@ class AccountsFillScreen extends StatefulWidget {
 }
 
 class _AccountsFillScreenState extends State<AccountsFillScreen> {
+  final _formKey = GlobalKey<FormState>();
   final Map<String, dynamic> _accountValues = {
     "cash": null,
     "banks": null,
@@ -44,42 +48,48 @@ class _AccountsFillScreenState extends State<AccountsFillScreen> {
               future: AccountsFillScreenViewModel().getCurrenciesList(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return ListView(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    children: [
-                      TextInputWidget(
-                        label: "Cash",
-                        onChange: _cashChange,
-                        keyboardType: "number",
-                        suffix: GestureDetector(
-                          onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _cashCurrencyChange, currenciesList: snapshot.data)),
-                          child: Text(_accountValues["cashCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                  return Form(
+                    key: _formKey,
+                    child: ListView(
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      children: [
+                        TextInputWidget(
+                          label: "Cash",
+                          onChange: _cashChange,
+                          validator: cashAccountValidator,
+                          keyboardType: "number",
+                          suffix: GestureDetector(
+                            onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _cashCurrencyChange, currenciesList: snapshot.data)),
+                            child: Text(_accountValues["cashCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: mainUnit / 2),
-                      TextInputWidget(
-                        label: "Banks",
-                        onChange: _banksChange,
-                        keyboardType: "number",
-                        suffix: GestureDetector(
-                          onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _banksCurrencyChange, currenciesList: snapshot.data)),
-                          child: Text(_accountValues["banksCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                        const SizedBox(height: mainUnit / 2),
+                        TextInputWidget(
+                          label: "Banks",
+                          onChange: _banksChange,
+                          validator: banksAccountValidator,
+                          keyboardType: "number",
+                          suffix: GestureDetector(
+                            onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _banksCurrencyChange, currenciesList: snapshot.data)),
+                            child: Text(_accountValues["banksCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: mainUnit / 2),
-                      TextInputWidget(
-                        label: "Savings",
-                        onChange: _savingsChange,
-                        keyboardType: "number",
-                        suffix: GestureDetector(
-                          onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _savingsCurrencyChange, currenciesList: snapshot.data)),
-                          child: Text(_accountValues["savingsCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                        const SizedBox(height: mainUnit / 2),
+                        TextInputWidget(
+                          label: "Savings",
+                          onChange: _savingsChange,
+                          validator: savingsAccountValidator,
+                          keyboardType: "number",
+                          suffix: GestureDetector(
+                            onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _savingsCurrencyChange, currenciesList: snapshot.data)),
+                            child: Text(_accountValues["savingsCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: mainUnit),
-                      ButtonWidget(action: () => AccountsFillScreenViewModel().submit(context, _accountValues), label: "Continue"),
-                    ],
+                        const SizedBox(height: mainUnit),
+                        ButtonWidget(action: () => AccountsFillScreenViewModel().submit(context, _formKey, _accountValues), label: "Continue"),
+                      ],
+                    ),
                   );
                 } else {
                   return const CircularProgressIndicator();

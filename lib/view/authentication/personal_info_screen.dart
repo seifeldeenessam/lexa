@@ -1,5 +1,7 @@
 import 'package:lexa/view/authentication/widgets/guiding_paragraph.dart';
 import 'package:lexa/view_model/theme/constants.dart';
+import 'package:lexa/view_model/validators/email_validator.dart';
+import 'package:lexa/view_model/validators/name_validator.dart';
 import 'package:lexa/view_model/validators/password_validator.dart';
 import 'package:lexa/view_model/widgets/app_bar.dart';
 import 'package:lexa/view_model/models/authentication/personal_info_screen_view_model.dart';
@@ -16,6 +18,7 @@ class PersonalInfoEntryScreen extends StatefulWidget {
 }
 
 class _PersonalInfoEntryScreenState extends State<PersonalInfoEntryScreen> {
+  final _formKey = GlobalKey<FormState>();
   final Map<String, dynamic> _personalInfo = {
     "name": null,
     "email": null,
@@ -36,19 +39,19 @@ class _PersonalInfoEntryScreenState extends State<PersonalInfoEntryScreen> {
           children: [
             GuidingParagragh(subTitle: PersonalInfoEntryScreenViewModel().subTitle, paragraph: PersonalInfoEntryScreenViewModel().paragraph),
             Expanded(
-              child: Container(
-                alignment: Alignment.bottomCenter,
-                child: ListView(
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextInputWidget(label: "Full name", onChange: _nameChange),
+                    TextInputWidget(label: "Full name", onChange: _nameChange, validator: nameValidator),
                     const SizedBox(height: mainUnit / 2),
-                    TextInputWidget(label: "E-mail", onChange: _emailChange),
+                    TextInputWidget(label: "E-mail", onChange: _emailChange, validator: emailValidator),
                     const SizedBox(height: mainUnit / 2),
-                    PasswordInputWidget(placeholder: "Password", validator: passwordValidator, onChange: _passwordChange),
+                    PasswordInputWidget(placeholder: "Password", onChange: _passwordChange, validator: passwordValidator),
                     const SizedBox(height: mainUnit),
-                    ButtonWidget(action: () => PersonalInfoEntryScreenViewModel().submit(context, _personalInfo), label: "Continue"),
+                    ButtonWidget(action: () => PersonalInfoEntryScreenViewModel().submit(context, _formKey, _personalInfo), label: "Continue"),
                   ],
                 ),
               ),

@@ -38,7 +38,7 @@ class _TransfersCreateScreenState extends State<TransfersCreateScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: FutureBuilder(
           future: TransfersCreateScreenViewModel().getAccounts(),
           builder: (context, snapshot) {
@@ -48,10 +48,10 @@ class _TransfersCreateScreenState extends State<TransfersCreateScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   TransferInputWidget(senderItems: snapshot.data, senderChange: _senderChange, recieverItems: snapshot.data, recieverChange: _recieverChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   TextInputWidget(label: "Amount *", onChange: _valueChange, keyboardType: "number"),
                   const Expanded(child: SizedBox()),
-                  const SizedBox(height: mainUnit),
+                  SizedBox(height: Units().spacing),
                   ButtonWidget(action: () => TransfersCreateScreenViewModel().submit(), label: "Transfer"),
                 ],
               );
@@ -60,9 +60,9 @@ class _TransfersCreateScreenState extends State<TransfersCreateScreen> {
                 children: [
                   Container(
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(mainUnit / 2),
-                    decoration: BoxDecoration(color: colorRed, borderRadius: BorderRadius.circular(mainUnit / 2)),
-                    child: Text("Error rendering inputs", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: colorOnBackground)),
+                    padding: EdgeInsets.all(Units().spacing / 2),
+                    decoration: BoxDecoration(color: GlobalColors().error, borderRadius: BorderRadius.circular(Units().spacing / 2)),
+                    child: Text("Error rendering inputs", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onBackground)),
                   ),
                 ],
               );

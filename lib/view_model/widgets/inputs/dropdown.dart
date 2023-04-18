@@ -43,15 +43,15 @@ class _DropdownInputWidgetState extends State<DropdownInputWidget> {
     return GestureDetector(
       onTap: () => showModal(context, widget.label, ModalBody(items: widget.items, onClick: _setSelectedValue)),
       child: Container(
-        padding: widget.isDense ? const EdgeInsets.symmetric(vertical: mainUnit / 2) : const EdgeInsets.symmetric(horizontal: mainUnit / 2, vertical: mainUnit - 8),
-        decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(widget.isDense ? 0 : borderRadius)),
+        padding: widget.isDense ? EdgeInsets.symmetric(vertical: Units().spacing / 2) : EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(widget.isDense ? 0 : Units().borderRadius)),
         clipBehavior: Clip.hardEdge,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(_selectedValue, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: _selectedValue != widget.label ? colorPrimary : colorTertiary)),
-            const SizedBox(width: mainUnit / 2),
-            const Icon(PhosphorIcons.caretDown, color: colorTertiary, size: 16),
+            Text(_selectedValue, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: _selectedValue != widget.label ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary)),
+            SizedBox(width: Units().spacing / 2),
+            Icon(PhosphorIcons.caretDown, color: Theme.of(context).colorScheme.tertiary, size: 16),
           ],
         ),
       ),
@@ -75,13 +75,13 @@ class ModalBody extends StatelessWidget {
         return GestureDetector(
           onTap: () => onClick(items![index].toString()),
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: mainUnit / 2, vertical: mainUnit - 8),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(borderRadius), color: colorOnBackground),
+            padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(Units().borderRadius), color: Theme.of(context).colorScheme.onBackground),
             child: Text(items![index].toString(), style: Theme.of(context).textTheme.labelSmall),
           ),
         );
       },
-      separatorBuilder: (context, index) => const SizedBox(height: mainUnit / 2),
+      separatorBuilder: (context, index) => SizedBox(height: Units().spacing / 2),
     );
   }
 }

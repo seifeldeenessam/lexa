@@ -40,7 +40,7 @@ class _AccountsFillScreenState extends State<AccountsFillScreen> {
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: AccountsFillScreenViewModel().title)),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           children: [
             Expanded(child: GuidingParagragh(subTitle: AccountsFillScreenViewModel().subTitle, paragraph: AccountsFillScreenViewModel().paragraph)),
@@ -61,10 +61,10 @@ class _AccountsFillScreenState extends State<AccountsFillScreen> {
                           keyboardType: "number",
                           suffix: GestureDetector(
                             onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _cashCurrencyChange, currenciesList: snapshot.data)),
-                            child: Text(_accountValues["cashCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                            child: Text(_accountValues["cashCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
                           ),
                         ),
-                        const SizedBox(height: mainUnit / 2),
+                        SizedBox(height: Units().spacing / 2),
                         TextInputWidget(
                           label: "Banks",
                           onChange: _banksChange,
@@ -72,10 +72,10 @@ class _AccountsFillScreenState extends State<AccountsFillScreen> {
                           keyboardType: "number",
                           suffix: GestureDetector(
                             onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _banksCurrencyChange, currenciesList: snapshot.data)),
-                            child: Text(_accountValues["banksCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                            child: Text(_accountValues["banksCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
                           ),
                         ),
-                        const SizedBox(height: mainUnit / 2),
+                        SizedBox(height: Units().spacing / 2),
                         TextInputWidget(
                           label: "Savings",
                           onChange: _savingsChange,
@@ -83,10 +83,10 @@ class _AccountsFillScreenState extends State<AccountsFillScreen> {
                           keyboardType: "number",
                           suffix: GestureDetector(
                             onTap: () => showModal(context, "Choose currency", ModalBody(onChange: _savingsCurrencyChange, currenciesList: snapshot.data)),
-                            child: Text(_accountValues["savingsCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                            child: Text(_accountValues["savingsCurrency"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
                           ),
                         ),
-                        const SizedBox(height: mainUnit),
+                        SizedBox(height: Units().spacing),
                         ButtonWidget(action: () => AccountsFillScreenViewModel().submit(context, _formKey, _accountValues), label: "Continue"),
                       ],
                     ),
@@ -124,19 +124,19 @@ class ModalBody extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Container(
-              padding: const EdgeInsets.all(mainUnit / 2),
-              decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(borderRadius)),
+              padding: EdgeInsets.all(Units().spacing / 2),
+              decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
               child: Row(
                 children: [
                   Expanded(child: Text(currenciesList![index]["name"], style: Theme.of(context).textTheme.bodyMedium)),
-                  const SizedBox(width: mainUnit / 2),
-                  Text(currenciesList![index]["code"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                  SizedBox(width: Units().spacing / 2),
+                  Text(currenciesList![index]["code"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
                 ],
               ),
             ),
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(height: mainUnit / 2),
+        separatorBuilder: (context, index) => SizedBox(height: Units().spacing / 2),
       ),
     );
   }

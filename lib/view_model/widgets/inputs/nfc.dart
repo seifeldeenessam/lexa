@@ -13,14 +13,14 @@ class NFCInputWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => onChange,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: mainUnit / 2, vertical: mainUnit - 8),
-        decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(borderRadius)),
+        padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Icon(PhosphorIcons.scan, color: colorTertiary, size: 24),
-            const SizedBox(width: mainUnit / 2),
-            Text(label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: colorTertiary)),
+            Icon(PhosphorIcons.scan, color: Theme.of(context).colorScheme.tertiary, size: 24),
+            SizedBox(width: Units().spacing / 2),
+            Text(label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Theme.of(context).colorScheme.tertiary)),
           ],
         ),
       ),

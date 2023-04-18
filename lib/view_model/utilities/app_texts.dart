@@ -23,11 +23,13 @@ class AppTexts {
   final String cardsCreateScreenTitle = "Add card";
   // Camera screen texts
   final String cameraScreenTitle = "Take a photo";
-  final String cameraScreenGuide1 = "1. Fit your card into the frame";
-  final String cameraScreenGuide2 = "2. Most cards are shiny so indirect light could be better";
-  final String cameraScreenGuide3 = "3. Sun light could produce a better image quality";
-  final String cameraScreenGuide4 = "4. Make sure your camera lens is clear";
-  final String cameraScreenGuide5 = "5. Cleaning the card helps revealing more details";
+  final List<String> cameraScreenGuide = [
+    "1. Fit your card into the frame",
+    "2. Most cards are shiny so indirect light could be better",
+    "3. Sun light could produce a better image quality",
+    "4. Make sure your camera lens is clear",
+    "5. Cleaning the card helps revealing more details",
+  ];
   // Transactions create screen texts
   final String transactionsCreateScreenTitle = "Add transaction";
   // Transfers create screen texts

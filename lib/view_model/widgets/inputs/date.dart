@@ -19,13 +19,13 @@ class _DateInputWidgetState extends State<DateInputWidget> {
     return GestureDetector(
       onTap: () => pickDate(context).then((value) => widget.onChange(value!)),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: mainUnit / 2, vertical: mainUnit - 8),
-        decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(borderRadius)),
+        padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Icon(PhosphorIcons.calendar, color: colorTertiary, size: 24),
-            const SizedBox(width: mainUnit / 2),
+            Icon(PhosphorIcons.calendar, color: Theme.of(context).colorScheme.tertiary, size: 24),
+            SizedBox(width: Units().spacing / 2),
             Text(widget.label, style: Theme.of(context).textTheme.labelSmall),
           ],
         ),

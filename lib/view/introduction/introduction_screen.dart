@@ -31,16 +31,16 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(mainUnit),
+          padding: EdgeInsets.all(Units().spacing),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.all(mainUnit * 2),
+                padding: EdgeInsets.all(Units().spacing * 2),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.15,
-                  child: SvgPicture.asset(SVGPaths().appLogo, color: colorPrimary),
+                  child: SvgPicture.asset(SVGPaths().appLogo, color: Theme.of(context).colorScheme.primary),
                 ),
               ),
               Expanded(
@@ -51,11 +51,11 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       PhoneInputWidget(placeholder: "Phone number", onChange: _phoneChange, validator: phoneNumberValidator),
-                      const SizedBox(height: mainUnit / 2),
+                      SizedBox(height: Units().spacing / 2),
                       PasswordInputWidget(placeholder: "Password", onChange: _passwordChange, validator: passwordValidator),
                       const Expanded(child: SizedBox()),
                       ButtonWidget(action: () => IntroductionScreenViewModel().submit(context, _formKey, _signInInfo), label: "Sign in"),
-                      const SizedBox(height: mainUnit / 2),
+                      SizedBox(height: Units().spacing / 2),
                       ButtonWidget(action: () => Navigator.pushNamed(context, '/phone-entry'), label: "Sign up for new account", backgroundColor: Colors.transparent),
                     ],
                   ),

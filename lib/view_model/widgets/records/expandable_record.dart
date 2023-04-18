@@ -44,22 +44,22 @@ class _ExpandableRecordState extends State<ExpandableRecord> {
           onLongPress: () => showModal(context, widget.title, ModalBody(id: widget.id)),
           // This Container is only to make the GestureDetector work properly
           child: Container(
-            color: colorOnBackground,
+            color: Theme.of(context).colorScheme.onBackground,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset('assets/images/categories/${widget.image.toLowerCase()}.png', width: 48, height: 48),
-                const SizedBox(width: mainUnit / 2),
+                SizedBox(width: Units().spacing / 2),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(widget.title, style: Theme.of(context).textTheme.bodyMedium),
-                      Text('${widget.price} E£', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: colorTertiary)),
+                      Text('${widget.price} E£', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.tertiary)),
                     ],
                   ),
                 ),
-                const SizedBox(width: mainUnit / 2),
+                SizedBox(width: Units().spacing / 2),
                 Transform.scale(
                   filterQuality: FilterQuality.high,
                   scaleY: _visibility ? -1 : 1,
@@ -67,7 +67,7 @@ class _ExpandableRecordState extends State<ExpandableRecord> {
                     action: () => setState(() => _visibility = !_visibility),
                     icon: PhosphorIcons.caretDownBold,
                     type: ButtonTypes.secondary,
-                    iconColor: colorTertiary,
+                    iconColor: Theme.of(context).colorScheme.tertiary,
                   ),
                 ),
               ],
@@ -80,19 +80,19 @@ class _ExpandableRecordState extends State<ExpandableRecord> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: mainUnit / 2),
+              SizedBox(height: Units().spacing / 2),
               Detail(title: "Transaction Category", description: widget.category),
-              const SizedBox(height: mainUnit / 4),
+              SizedBox(height: Units().spacing / 4),
               widget.note == null ? const SizedBox() : Detail(title: "Note", description: widget.note.toString()),
-              SizedBox(height: widget.note == null ? 0 : mainUnit / 4),
+              SizedBox(height: widget.note == null ? 0 : Units().spacing / 4),
               Detail(title: "Billing Account", description: widget.billingAccount),
-              const SizedBox(height: mainUnit / 4),
+              SizedBox(height: Units().spacing / 4),
               Detail(title: "Current Balance Then", description: "${widget.currentBalance} E£"),
-              const SizedBox(height: mainUnit / 4),
+              SizedBox(height: Units().spacing / 4),
             ],
           ),
         ),
-        const SizedBox(height: mainUnit / 2),
+        SizedBox(height: Units().spacing / 2),
       ],
     );
   }
@@ -111,7 +111,7 @@ class Detail extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title, style: Theme.of(context).textTheme.bodySmall),
-        Text(description, style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+        Text(description, style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
       ],
     );
   }
@@ -128,8 +128,8 @@ class ModalBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ButtonWidget(action: () {}, label: "Edit"),
-        const SizedBox(height: mainUnit / 2),
-        ButtonWidget(action: () => TransactionsCreateScreenViewModel().delete(id, context), label: "Delete", backgroundColor: colorRed),
+        SizedBox(height: Units().spacing / 2),
+        ButtonWidget(action: () => TransactionsCreateScreenViewModel().delete(id, context), label: "Delete", backgroundColor: GlobalColors().error),
       ],
     );
   }

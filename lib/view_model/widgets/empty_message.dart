@@ -1,6 +1,6 @@
-import 'package:lexa/view_model/theme/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:lexa/view_model/theme/constants.dart';
 
 class EmptyMessage extends StatelessWidget {
   final String illustartion;
@@ -15,8 +15,8 @@ class EmptyMessage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SvgPicture.asset('assets/svgs/illustrations/$illustartion.svg', width: MediaQuery.of(context).size.width),
-        const SizedBox(height: mainUnit),
-        Text(message, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: colorTertiary)),
+        SizedBox(height: Units().spacing),
+        Text(message, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
         SizedBox(height: MediaQuery.of(context).size.width * 0.4),
       ],
     );

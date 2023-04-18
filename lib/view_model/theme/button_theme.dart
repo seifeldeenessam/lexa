@@ -7,7 +7,7 @@ ElevatedButtonThemeData buttonThemeData() {
       elevation: 0,
       alignment: Alignment.center,
       visualDensity: VisualDensity.compact,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Units().borderRadius)),
     ),
   );
 }

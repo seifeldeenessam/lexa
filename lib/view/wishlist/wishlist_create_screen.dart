@@ -36,7 +36,7 @@ class _WishlistCreateScreenState extends State<WishlistCreateScreen> {
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: WishlistCreateScreenViewModel().title)),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,18 +47,18 @@ class _WishlistCreateScreenState extends State<WishlistCreateScreen> {
                 physics: const BouncingScrollPhysics(),
                 children: [
                   TextInputWidget(label: "Title *", onChange: _titleChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   TextInputWidget(label: "Price", onChange: _priceChange, keyboardType: "number"),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   TextInputWidget(label: "Note", onChange: _noteChange, paragraph: true),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   TextInputWidget(label: "Link", onChange: _linkChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   SwitchInputWidget(label: "Mark as important", isEnabled: _wishlistItemData["isImportant"], onSwitch: _isImportantChange),
                 ],
               ),
             ),
-            const SizedBox(height: mainUnit),
+            SizedBox(height: Units().spacing),
             ButtonWidget(action: () => WishlistCreateScreenViewModel().submit(context, _wishlistItemData), label: "Create"),
           ],
         ),

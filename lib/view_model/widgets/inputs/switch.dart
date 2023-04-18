@@ -1,5 +1,5 @@
-import 'package:lexa/view_model/theme/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:lexa/view_model/theme/constants.dart';
 
 class SwitchInputWidget extends StatefulWidget {
   final String label;
@@ -23,21 +23,21 @@ class _SwitchInputWidgetState extends State<SwitchInputWidget> {
         widget.onSwitch(_enabled);
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: mainUnit / 2, vertical: mainUnit - 8),
-        decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(borderRadius)),
+        padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(widget.label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: _enabled == 1 ? colorPrimary : colorTertiary)),
+            Text(widget.label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: _enabled == 1 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary)),
             Container(
               alignment: _enabled == 1 ? Alignment.centerRight : Alignment.centerLeft,
-              width: (mainUnit / 2) * 3,
-              padding: const EdgeInsets.all(mainUnit / 6),
-              decoration: BoxDecoration(color: _enabled == 1 ? colorPrimary : colorTertiary, borderRadius: BorderRadius.circular(mainUnit)),
+              width: (Units().spacing / 2) * 3,
+              padding: EdgeInsets.all(Units().spacing / 6),
+              decoration: BoxDecoration(color: _enabled == 1 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary, borderRadius: BorderRadius.circular(Units().spacing)),
               child: Container(
-                width: mainUnit / 2,
-                height: mainUnit / 2,
-                decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(mainUnit / 4)),
+                width: Units().spacing / 2,
+                height: Units().spacing / 2,
+                decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().spacing / 4)),
               ),
             ),
           ],

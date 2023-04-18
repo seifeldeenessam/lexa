@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:lexa/view_model/theme/constants.dart';
 
-TextButtonThemeData textButtonThemeData() {
+TextButtonThemeData lightTextButtonThemeData() {
   return TextButtonThemeData(
     style: TextButton.styleFrom(
       alignment: Alignment.center,
-      disabledBackgroundColor: colorTertiary,
-      disabledForegroundColor: colorOnBackground,
-      disabledIconColor: colorOnBackground,
+      disabledBackgroundColor: LightThemeColors().tertiary,
+      disabledForegroundColor: LightThemeColors().onBackground,
+      disabledIconColor: LightThemeColors().onBackground,
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(mainUnit / 2)),
-      iconColor: colorPrimary,
-      foregroundColor: colorPrimary,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Units().spacing / 2)),
+      iconColor: LightThemeColors().primary,
+      foregroundColor: LightThemeColors().primary,
+    ),
+  );
+}
+
+TextButtonThemeData darkTextButtonThemeData() {
+  return TextButtonThemeData(
+    style: TextButton.styleFrom(
+      alignment: Alignment.center,
+      disabledBackgroundColor: DarkThemeColors().tertiary,
+      disabledForegroundColor: DarkThemeColors().onBackground,
+      disabledIconColor: DarkThemeColors().onBackground,
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Units().spacing / 2)),
+      iconColor: DarkThemeColors().primary,
+      foregroundColor: DarkThemeColors().primary,
     ),
   );
 }

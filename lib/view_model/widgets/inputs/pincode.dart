@@ -1,5 +1,5 @@
-import 'package:lexa/view_model/theme/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:lexa/view_model/theme/constants.dart';
 
 class PINCodeInputWidget extends StatelessWidget {
   final List<String> numbers;
@@ -31,18 +31,18 @@ class PINCodeInputWidget extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: colorOnBackground,
-        borderRadius: BorderRadius.circular(borderRadius),
+        color: Theme.of(context).colorScheme.onBackground,
+        borderRadius: BorderRadius.circular(Units().borderRadius),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: numbers.map((number) {
           return Expanded(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: mainUnit / 2, vertical: mainUnit - 8),
+              padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
               child: Text(
                 renderText(number),
-                style: Theme.of(context).textTheme.labelSmall?.copyWith(color: colorPrimary),
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Theme.of(context).colorScheme.primary),
                 textAlign: TextAlign.center,
               ),
             ),

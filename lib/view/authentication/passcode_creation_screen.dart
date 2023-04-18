@@ -34,7 +34,7 @@ class _PasscodeCreationScreenState extends State<PasscodeCreationScreen> {
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: PasscodeCreationScreenViewModel().title)),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -43,7 +43,7 @@ class _PasscodeCreationScreenState extends State<PasscodeCreationScreen> {
             Column(
               children: [
                 PINCodeInputWidget(numbers: _numbers, secured: true),
-                const SizedBox(height: mainUnit),
+                SizedBox(height: Units().spacing),
                 NumberPadWidget(numbers: _numbers, update: _update),
               ],
             ),

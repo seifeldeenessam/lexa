@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const UserDetails(isPremium: true),
-          const SizedBox(height: mainUnit),
+          SizedBox(height: Units().spacing),
           ...ProfileScreenViewModel().settings.map((e) => Setting(icon: e["icon"], title: e["title"])).toList(),
         ],
       ),

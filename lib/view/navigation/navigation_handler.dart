@@ -34,16 +34,16 @@ class _NavigationHandlerState extends State<NavigationHandler> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(mainUnit),
+          padding: EdgeInsets.all(Units().spacing),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(child: _pages.elementAt(_selectedIndex)),
-              const SizedBox(height: mainUnit),
+              SizedBox(height: Units().spacing),
               Container(
-                padding: const EdgeInsets.all(mainUnit / 2),
-                decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(borderRadius)),
+                padding: EdgeInsets.all(Units().spacing / 2),
+                decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -51,7 +51,7 @@ class _NavigationHandlerState extends State<NavigationHandler> {
                       child: ButtonWidget(
                         action: () => _selectedIndex == 0 ? Navigator.pushNamed(context, '/card/create') : _onItemTapped(0),
                         icon: _selectedIndex == 0 ? PhosphorIcons.plusCircleFill : PhosphorIcons.creditCard,
-                        iconColor: _selectedIndex == 0 ? colorPrimary : colorTertiary,
+                        iconColor: _selectedIndex == 0 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary,
                         type: ButtonTypes.secondary,
                       ),
                     ),
@@ -59,7 +59,7 @@ class _NavigationHandlerState extends State<NavigationHandler> {
                       child: ButtonWidget(
                         action: () => _selectedIndex == 1 ? Navigator.pushNamed(context, '/transaction/create') : _onItemTapped(1),
                         icon: _selectedIndex == 1 ? PhosphorIcons.plusCircleFill : PhosphorIcons.money,
-                        iconColor: _selectedIndex == 1 ? colorPrimary : colorTertiary,
+                        iconColor: _selectedIndex == 1 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary,
                         type: ButtonTypes.secondary,
                       ),
                     ),
@@ -67,7 +67,7 @@ class _NavigationHandlerState extends State<NavigationHandler> {
                       child: ButtonWidget(
                         action: () => _selectedIndex == 2 ? Navigator.pushNamed(context, '/agreement/create') : _onItemTapped(2),
                         icon: _selectedIndex == 2 ? PhosphorIcons.plusCircleFill : PhosphorIcons.handshake,
-                        iconColor: _selectedIndex == 2 ? colorPrimary : colorTertiary,
+                        iconColor: _selectedIndex == 2 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary,
                         type: ButtonTypes.secondary,
                       ),
                     ),
@@ -75,7 +75,7 @@ class _NavigationHandlerState extends State<NavigationHandler> {
                       child: ButtonWidget(
                         action: () => _selectedIndex == 3 ? Navigator.pushNamed(context, '/wishlist/create') : _onItemTapped(3),
                         icon: _selectedIndex == 3 ? PhosphorIcons.plusCircleFill : PhosphorIcons.listChecks,
-                        iconColor: _selectedIndex == 3 ? colorPrimary : colorTertiary,
+                        iconColor: _selectedIndex == 3 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary,
                         type: ButtonTypes.secondary,
                       ),
                     ),
@@ -83,7 +83,7 @@ class _NavigationHandlerState extends State<NavigationHandler> {
                       child: ButtonWidget(
                         action: () => _onItemTapped(4),
                         icon: PhosphorIcons.chartLine,
-                        iconColor: _selectedIndex == 4 ? colorPrimary : colorTertiary,
+                        iconColor: _selectedIndex == 4 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary,
                         type: ButtonTypes.secondary,
                       ),
                     ),
@@ -91,7 +91,7 @@ class _NavigationHandlerState extends State<NavigationHandler> {
                       child: ButtonWidget(
                         action: () => _onItemTapped(5),
                         icon: PhosphorIcons.user,
-                        iconColor: _selectedIndex == 5 ? colorPrimary : colorTertiary,
+                        iconColor: _selectedIndex == 5 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary,
                         type: ButtonTypes.secondary,
                       ),
                     ),

@@ -14,12 +14,12 @@ class CardWidget extends StatelessWidget {
       flipOnTouch: true,
       direction: FlipDirection.VERTICAL,
       front: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(borderRadius)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(Units().borderRadius)),
         clipBehavior: Clip.hardEdge,
         child: Image.asset('assets/images/cards/front/$image', fit: BoxFit.fitWidth),
       ),
       back: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(borderRadius)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(Units().borderRadius)),
         clipBehavior: Clip.hardEdge,
         child: Image.asset('assets/images/cards/back/$image', fit: BoxFit.fitWidth),
       ),

@@ -33,7 +33,7 @@ class _CardsCreateScreenState extends State<CardsCreateScreen> {
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: CardsCreateScreenViewModel().title)),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,18 +44,18 @@ class _CardsCreateScreenState extends State<CardsCreateScreen> {
                 physics: const BouncingScrollPhysics(),
                 children: [
                   ImageInputWidget(label: "Card front", onChange: _frontImageChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   ImageInputWidget(label: "Card back", onChange: _backImageChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   DropdownInputWidget(label: "Card type", items: CardsCreateScreenViewModel().cardTypes, onChange: _typeChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   TextInputWidget(label: "Card title", onChange: _titleChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   if (_cardData["type"] == "Bank card" || _cardData["type"] == "Other") NFCInputWidget(label: "Scan card data", onChange: () {}),
                 ],
               ),
             ),
-            const SizedBox(height: mainUnit),
+            SizedBox(height: Units().spacing),
             ButtonWidget(action: () => CardsCreateScreenViewModel().submit(_cardData), label: "Create"),
           ],
         ),

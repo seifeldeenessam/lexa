@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:lexa/view_model/theme/constants.dart';
 import 'package:lexa/view_model/functions/show_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lexa/view_model/theme/constants.dart';
 
 class PhoneInputWidget extends StatefulWidget {
   final String placeholder;
@@ -31,12 +31,12 @@ class _PhoneInputWidgetState extends State<PhoneInputWidget> {
     return TextFormField(
       autocorrect: false,
       autofocus: false,
-      cursorColor: colorPrimary,
+      cursorColor: Theme.of(context).colorScheme.primary,
       enableSuggestions: false,
       keyboardType: TextInputType.number,
       onChanged: (value) => widget.onChange(_selectedCountryCode + value),
       maxLines: 1,
-      scrollPadding: const EdgeInsets.all(mainUnit / 2),
+      scrollPadding: EdgeInsets.all(Units().spacing / 2),
       scrollPhysics: const BouncingScrollPhysics(),
       style: Theme.of(context).textTheme.labelMedium,
       textInputAction: TextInputAction.next,
@@ -81,10 +81,10 @@ class _CountryCodeSelectorState extends State<CountryCodeSelector> {
     return GestureDetector(
       onTap: () => showModal(context, 'Choose your country', ModalBody(onChange: _countryChange)),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: mainUnit / 2),
+        padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2),
         child: Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: mainUnit / 4,
+          spacing: Units().spacing / 4,
           children: [
             Image.asset('assets/images/flags/${selectedCountry["flag"]}.png', width: 24, height: 16),
             Text(selectedCountry["code"].toString(), style: Theme.of(context).textTheme.labelMedium),
@@ -136,21 +136,21 @@ class _ModalBodyState extends State<ModalBody> {
           return GestureDetector(
             onTap: () => widget.onChange({"code": _countries[index]["dial_code"], "flag": _countries[index]["code"].toString().toLowerCase()}),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: mainUnit / 2, vertical: mainUnit - 8),
-              decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(borderRadius)),
+              padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
+              decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
               child: Row(
                 children: [
                   Image.asset('assets/images/flags/${_countries[index]["code"].toString().toLowerCase()}.png', width: 24, height: 16),
-                  const SizedBox(width: mainUnit / 2),
+                  SizedBox(width: Units().spacing / 2),
                   Expanded(child: Text(_countries[index]["name"], style: Theme.of(context).textTheme.bodyMedium)),
-                  const SizedBox(width: mainUnit / 2),
-                  Text(_countries[index]["dial_code"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                  SizedBox(width: Units().spacing / 2),
+                  Text(_countries[index]["dial_code"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
                 ],
               ),
             ),
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(height: mainUnit / 2),
+        separatorBuilder: (context, index) => SizedBox(height: Units().spacing / 2),
       ),
     );
   }

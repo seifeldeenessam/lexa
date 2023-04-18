@@ -19,20 +19,20 @@ class CategoryWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => showModal(context, title, const ModalBody()),
       child: Padding(
-        padding: const EdgeInsets.all(mainUnit / 2),
+        padding: EdgeInsets.all(Units().spacing / 2),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset('assets/images/categories/$image', width: 48, height: 48),
-            const SizedBox(width: mainUnit / 2),
+            SizedBox(width: Units().spacing / 2),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FittedBox(child: Text(title, style: Theme.of(context).textTheme.titleMedium)),
-                const SizedBox(height: mainUnit / 8),
-                Text("$value E£", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                SizedBox(height: Units().spacing / 8),
+                Text("$value E£", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
               ],
             )
           ],

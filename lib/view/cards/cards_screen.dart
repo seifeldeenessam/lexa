@@ -41,11 +41,11 @@ class CardMutationModal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ButtonWidget(action: () {}, label: isFavorite ? "Remove from favorites" : "Add to favorites", backgroundColor: colorOnBackground),
-        const SizedBox(height: mainUnit / 2),
-        ButtonWidget(action: () {}, label: "Edit card", backgroundColor: colorOnBackground),
-        const SizedBox(height: mainUnit / 2),
-        ButtonWidget(action: () {}, label: "Delete Card", labelColor: colorOnBackground, backgroundColor: colorRed)
+        ButtonWidget(action: () {}, label: isFavorite ? "Remove from favorites" : "Add to favorites", backgroundColor: Theme.of(context).colorScheme.onBackground),
+        SizedBox(height: Units().spacing / 2),
+        ButtonWidget(action: () {}, label: "Edit card", backgroundColor: Theme.of(context).colorScheme.onBackground),
+        SizedBox(height: Units().spacing / 2),
+        ButtonWidget(action: () {}, label: "Delete Card", labelColor: Theme.of(context).colorScheme.onBackground, backgroundColor: GlobalColors().error)
       ],
     );
   }
@@ -61,7 +61,7 @@ class CardMutationModal extends StatelessWidget {
 //       child: CardWidget(image: cards[index].image),
 //     );
 //   },
-//   separatorBuilder: (context, index) => const SizedBox(height: mainUnit / 2),
+//   separatorBuilder: (context, index) => SizedBox(height: Units().spacing / 2),
 // );
 
 // CircularProgressIndicator(color: colorBlackPrimary, strokeWidth: 2.0),

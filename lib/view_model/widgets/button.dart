@@ -33,7 +33,7 @@ class ButtonWidget extends StatelessWidget {
         return const EdgeInsets.all(0);
       }
 
-      return const EdgeInsets.symmetric(horizontal: mainUnit, vertical: mainUnit - 8);
+      return EdgeInsets.symmetric(horizontal: Units().spacing, vertical: Units().spacing - 8);
     }
 
     Widget renderButtonContent() {
@@ -65,7 +65,7 @@ class ButtonWidget extends StatelessWidget {
         return backgroundColor!;
       }
 
-      return colorOnBackground;
+      return Theme.of(context).colorScheme.onBackground;
     }
 
     return TextButton(

@@ -34,7 +34,7 @@ class _PersonalInfoEntryScreenState extends State<PersonalInfoEntryScreen> {
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: PersonalInfoEntryScreenViewModel().title)),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           children: [
             GuidingParagragh(subTitle: PersonalInfoEntryScreenViewModel().subTitle, paragraph: PersonalInfoEntryScreenViewModel().paragraph),
@@ -46,11 +46,11 @@ class _PersonalInfoEntryScreenState extends State<PersonalInfoEntryScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     TextInputWidget(label: "Full name", onChange: _nameChange, validator: nameValidator),
-                    const SizedBox(height: mainUnit / 2),
+                    SizedBox(height: Units().spacing / 2),
                     TextInputWidget(label: "E-mail", onChange: _emailChange, validator: emailValidator),
-                    const SizedBox(height: mainUnit / 2),
+                    SizedBox(height: Units().spacing / 2),
                     PasswordInputWidget(placeholder: "Password", onChange: _passwordChange, validator: passwordValidator),
-                    const SizedBox(height: mainUnit),
+                    SizedBox(height: Units().spacing),
                     ButtonWidget(action: () => PersonalInfoEntryScreenViewModel().submit(context, _formKey, _personalInfo), label: "Continue"),
                   ],
                 ),

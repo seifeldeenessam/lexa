@@ -36,18 +36,18 @@ class _CheckboxRecordWidgetState extends State<CheckboxRecordWidget> {
         return await showModalBottomSheet<bool>(
           context: context,
           clipBehavior: Clip.hardEdge,
-          shape: const RoundedRectangleBorder(
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(borderRadius),
-              topRight: Radius.circular(borderRadius),
+              topLeft: Radius.circular(Units().borderRadius),
+              topRight: Radius.circular(Units().borderRadius),
             ),
           ),
-          backgroundColor: colorBackground,
+          backgroundColor: Theme.of(context).colorScheme.background,
           builder: (BuildContext context) {
             return Wrap(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(mainUnit),
+                  padding: EdgeInsets.all(Units().spacing),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -58,10 +58,10 @@ class _CheckboxRecordWidgetState extends State<CheckboxRecordWidget> {
                           style: Theme.of(context).textTheme.titleLarge,
                           textAlign: TextAlign.center,
                         ),
-                        const SizedBox(height: mainUnit),
-                        ButtonWidget(action: () => Navigator.of(context).pop(false), label: "cancel", backgroundColor: colorOnBackground),
-                        const SizedBox(height: mainUnit / 2),
-                        ButtonWidget(action: () => Navigator.of(context).pop(true), label: "delete", labelColor: colorBackground, backgroundColor: colorRed),
+                        SizedBox(height: Units().spacing),
+                        ButtonWidget(action: () => Navigator.of(context).pop(false), label: "cancel", backgroundColor: Theme.of(context).colorScheme.onBackground),
+                        SizedBox(height: Units().spacing / 2),
+                        ButtonWidget(action: () => Navigator.of(context).pop(true), label: "delete", labelColor: Theme.of(context).colorScheme.background, backgroundColor: GlobalColors().error),
                       ],
                     ),
                   ),
@@ -76,13 +76,13 @@ class _CheckboxRecordWidgetState extends State<CheckboxRecordWidget> {
       resizeDuration: const Duration(milliseconds: 300),
       onDismissed: (DismissDirection direction) {},
       background: Container(
-        padding: const EdgeInsets.all(mainUnit / 2),
+        padding: EdgeInsets.all(Units().spacing / 2),
         alignment: Alignment.centerRight,
         decoration: BoxDecoration(
-          color: colorRed,
-          borderRadius: BorderRadius.circular(borderRadius),
+          color: GlobalColors().error,
+          borderRadius: BorderRadius.circular(Units().borderRadius),
         ),
-        child: const Icon(PhosphorIcons.trashFill, color: colorPrimary),
+        child: Icon(PhosphorIcons.trashFill, color: Theme.of(context).colorScheme.primary),
       ),
       child: IntrinsicHeight(
         child: Row(
@@ -92,31 +92,31 @@ class _CheckboxRecordWidgetState extends State<CheckboxRecordWidget> {
             Container(
               width: 5,
               decoration: BoxDecoration(
-                color: widget.isImportant == 1 ? colorRed : Colors.transparent,
-                borderRadius: BorderRadius.circular(mainUnit),
+                color: widget.isImportant == 1 ? GlobalColors().error : Colors.transparent,
+                borderRadius: BorderRadius.circular(Units().spacing),
               ),
             ),
-            const SizedBox(width: mainUnit / 2),
+            SizedBox(width: Units().spacing / 2),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(widget.title, style: Theme.of(context).textTheme.bodyLarge),
-                  const SizedBox(height: mainUnit / 6),
-                  if (widget.note != null) Text(widget.note!, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: colorTertiary)),
-                  if (widget.note != null) const SizedBox(height: mainUnit / 6),
-                  if (widget.price != null) Text(widget.price!.toString(), style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: colorTertiary)),
-                  if (widget.price != null) const SizedBox(height: mainUnit / 6),
-                  if (widget.link != null) Text(widget.link!, style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
-                  if (widget.link != null) const SizedBox(height: mainUnit / 6),
+                  SizedBox(height: Units().spacing / 6),
+                  if (widget.note != null) Text(widget.note!, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
+                  if (widget.note != null) SizedBox(height: Units().spacing / 6),
+                  if (widget.price != null) Text(widget.price!.toString(), style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
+                  if (widget.price != null) SizedBox(height: Units().spacing / 6),
+                  if (widget.link != null) Text(widget.link!, style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
+                  if (widget.link != null) SizedBox(height: Units().spacing / 6),
                 ],
               ),
             ),
             ButtonWidget(
               action: () {},
               icon: widget.isChecked == 1 ? PhosphorIcons.checkSquare : PhosphorIcons.square,
-              iconColor: colorPrimary,
+              iconColor: Theme.of(context).colorScheme.primary,
               type: ButtonTypes.secondary,
             ),
           ],

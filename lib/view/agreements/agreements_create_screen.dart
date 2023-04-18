@@ -16,7 +16,7 @@ class _AgreementsCreateScreenState extends State<AgreementsCreateScreen> {
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: AgreementsCreateScreenViewModel().title)),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           children: const [],
         ),

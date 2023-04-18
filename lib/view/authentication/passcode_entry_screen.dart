@@ -51,7 +51,7 @@ class _PasscodeEntryScreenState extends State<PasscodeEntryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -64,7 +64,7 @@ class _PasscodeEntryScreenState extends State<PasscodeEntryScreen> {
             Column(
               children: [
                 PINCodeInputWidget(numbers: _numbers, secured: true),
-                const SizedBox(height: mainUnit),
+                SizedBox(height: Units().spacing),
                 NumberPadWidget(numbers: _numbers, update: update),
               ],
             ),

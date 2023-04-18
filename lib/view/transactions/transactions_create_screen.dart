@@ -50,7 +50,7 @@ class _TransactionsCreateScreenState extends State<TransactionsCreateScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -61,7 +61,7 @@ class _TransactionsCreateScreenState extends State<TransactionsCreateScreen> {
                 physics: const BouncingScrollPhysics(),
                 children: [
                   DropdownInputWidget(label: "Transaction type", items: TransactionsCreateScreenViewModel().transactionTypes, onChange: _typeChange),
-                  const SizedBox(height: mainUnit / 2),
+                  SizedBox(height: Units().spacing / 2),
                   FutureBuilder(
                     future: TransactionsCreateScreenViewModel().getAccounts(),
                     builder: (context, snapshot) {
@@ -69,26 +69,26 @@ class _TransactionsCreateScreenState extends State<TransactionsCreateScreen> {
                         return Column(
                           children: [
                             TextInputWidget(label: "Title *", onChange: _titleChange),
-                            const SizedBox(height: mainUnit / 2),
+                            SizedBox(height: Units().spacing / 2),
                             TextInputWidget(label: "Price *", onChange: _priceChange, keyboardType: "number"),
-                            const SizedBox(height: mainUnit / 2),
+                            SizedBox(height: Units().spacing / 2),
                             TextInputWidget(label: "Note", onChange: _noteChange, paragraph: true),
-                            const SizedBox(height: mainUnit / 2),
+                            SizedBox(height: Units().spacing / 2),
                             DropdownInputWidget(label: "Category *", items: TransactionsCreateScreenViewModel().transactionCategories, required: false, onChange: _categoryChange),
-                            const SizedBox(height: mainUnit / 2),
+                            SizedBox(height: Units().spacing / 2),
                             DropdownInputWidget(label: "Account *", items: snapshot.data, required: false, onChange: _billingAccountChange),
-                            const SizedBox(height: mainUnit / 2),
+                            SizedBox(height: Units().spacing / 2),
                             DateInputWidget(onChange: _occurrenceDateChange, label: formateDate(_transactionData["occurrenceDate"] ?? DateTime.now())),
-                            if (_transactionData["type"] == "Subscription") const SizedBox(height: mainUnit / 2),
+                            if (_transactionData["type"] == "Subscription") SizedBox(height: Units().spacing / 2),
                             if (_transactionData["type"] == "Subscription") DateInputWidget(onChange: _expiryDateChange, label: formateDate(_transactionData["expiryDate"] ?? DateTime(DateTime.now().year, DateTime.now().month + 1, DateTime.now().day, DateTime.now().hour, DateTime.now().minute))),
                           ],
                         );
                       } else {
                         return Container(
                           alignment: Alignment.center,
-                          padding: const EdgeInsets.all(mainUnit / 2),
-                          decoration: BoxDecoration(color: colorRed, borderRadius: BorderRadius.circular(mainUnit / 2)),
-                          child: Text("Error rendering inputs", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: colorOnBackground)),
+                          padding: EdgeInsets.all(Units().spacing / 2),
+                          decoration: BoxDecoration(color: GlobalColors().error, borderRadius: BorderRadius.circular(Units().spacing / 2)),
+                          child: Text("Error rendering inputs", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onBackground)),
                         );
                       }
                     },
@@ -96,7 +96,7 @@ class _TransactionsCreateScreenState extends State<TransactionsCreateScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: mainUnit),
+            SizedBox(height: Units().spacing),
             ButtonWidget(action: () => TransactionsCreateScreenViewModel().submit(context, _transactionData), label: "Submit"),
           ],
         ),

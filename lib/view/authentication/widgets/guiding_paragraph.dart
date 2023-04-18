@@ -14,8 +14,8 @@ class GuidingParagragh extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(subTitle, style: Theme.of(context).textTheme.titleMedium),
-        const SizedBox(height: mainUnit / 2),
-        Text(paragraph, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: colorTertiary)),
+        SizedBox(height: Units().spacing / 2),
+        Text(paragraph, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
       ],
     );
   }

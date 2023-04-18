@@ -10,7 +10,8 @@ void main() {
       MaterialApp(
         initialRoute: '/',
         routes: routesHandler,
-        theme: themeData(),
+        theme: lightThemeData(),
+        darkTheme: darkThemeData(),
         debugShowCheckedModeBanner: false,
       ),
     );

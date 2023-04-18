@@ -20,9 +20,9 @@ Widget sortWishlistByDate(BuildContext context, List<Map<String, dynamic>>? wish
     itemCount: distinctDates.length,
     itemBuilder: (context, distinctDatesIndex) {
       return Container(
-        margin: const EdgeInsets.only(bottom: mainUnit),
-        padding: const EdgeInsets.only(top: mainUnit / 2, right: mainUnit / 2, left: mainUnit / 2),
-        decoration: BoxDecoration(color: colorOnBackground, borderRadius: BorderRadius.circular(borderRadius)),
+        margin: EdgeInsets.only(bottom: Units().spacing),
+        padding: EdgeInsets.only(top: Units().spacing / 2, right: Units().spacing / 2, left: Units().spacing / 2),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -30,11 +30,11 @@ Widget sortWishlistByDate(BuildContext context, List<Map<String, dynamic>>? wish
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(distinctDates[distinctDatesIndex], style: Theme.of(context).textTheme.titleMedium!.copyWith(color: colorTertiary)),
-                Text("count", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                Text(distinctDates[distinctDatesIndex], style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
+                Text("count", style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
               ],
             ),
-            const SizedBox(height: mainUnit / 2),
+            SizedBox(height: Units().spacing / 2),
             ListView.separated(
               shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
@@ -56,7 +56,7 @@ Widget sortWishlistByDate(BuildContext context, List<Map<String, dynamic>>? wish
                   return const SizedBox();
                 }
               },
-              separatorBuilder: (context, index) => const SizedBox(height: mainUnit / 2),
+              separatorBuilder: (context, index) => SizedBox(height: Units().spacing / 2),
             ),
           ],
         ),

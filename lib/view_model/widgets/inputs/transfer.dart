@@ -23,9 +23,9 @@ class TransferInputWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(child: DropdownInputWidget(label: "Sender", items: senderItems, onChange: senderChange)),
-        const SizedBox(width: mainUnit / 2),
-        const Icon(PhosphorIcons.swap, color: colorPrimary, size: 24),
-        const SizedBox(width: mainUnit / 2),
+        SizedBox(width: Units().spacing / 2),
+        Icon(PhosphorIcons.swap, color: Theme.of(context).colorScheme.primary, size: 24),
+        SizedBox(width: Units().spacing / 2),
         Expanded(child: DropdownInputWidget(label: "Reciver", items: recieverItems, onChange: recieverChange)),
       ],
     );

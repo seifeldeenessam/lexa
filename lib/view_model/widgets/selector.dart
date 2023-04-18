@@ -1,5 +1,5 @@
-import 'package:lexa/view_model/theme/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:lexa/view_model/theme/constants.dart';
 import 'package:lexa/view_model/widgets/inputs/dropdown.dart';
 
 class SelectorWidget extends StatelessWidget {
@@ -19,8 +19,8 @@ class SelectorWidget extends StatelessWidget {
     void onChange(title) => {};
 
     return Container(
-      padding: const EdgeInsets.all(mainUnit / 2),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(borderRadius), color: colorOnBackground),
+      padding: EdgeInsets.all(Units().spacing / 2),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(Units().borderRadius), color: Theme.of(context).colorScheme.onBackground),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +30,7 @@ class SelectorWidget extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(text: "$title\n", style: Theme.of(context).textTheme.titleMedium),
-                  TextSpan(text: subTitle, style: Theme.of(context).textTheme.bodySmall!.copyWith(color: colorTertiary)),
+                  TextSpan(text: subTitle, style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
                 ],
               ),
             ),

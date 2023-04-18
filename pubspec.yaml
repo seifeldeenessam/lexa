@@ -8,15 +8,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  phosphor_flutter: ^1.4.0
-  flutter_svg: ^1.1.5
-  flutter_native_splash: ^2.2.12
-  shared_preferences: ^2.0.15
-  carousel_slider: ^4.1.1
-  http: ^0.13.5
-  flip_card: ^0.6.0
+  phosphor_flutter: ^2.0.0
+  flutter_svg: ^2.0.5
+  flip_card: ^0.7.0
   sqflite: ^2.2.0+3
-  intl: ^0.17.0
+  intl: ^0.18.0
   camera: ^0.10.3
   path_provider: ^2.0.11
 dev_dependencies:
@@ -44,11 +40,3 @@ flutter:
         - asset: assets/fonts/ReadexPro/ReadexPro-SemiBold.ttf
           style: normal
           weight: 600
-flutter_native_splash:
-  background_image: 'assets/images/branding/splash-background.png'
-  image: 'assets/images/branding/splash-image.png'
-  branding: 'assets/images/branding/splash-branding.png'
-  android: true
-  ios: true
-  android_gravity: fill
-  ios_content_mode: scaleToFill

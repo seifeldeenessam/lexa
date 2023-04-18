@@ -26,14 +26,14 @@ class _PasswordInputWidgetState extends State<PasswordInputWidget> {
     return TextFormField(
       autocorrect: false,
       autofocus: false,
-      cursorColor: colorPrimary,
+      cursorColor: Theme.of(context).colorScheme.primary,
       enableSuggestions: false,
       keyboardType: TextInputType.text,
       onChanged: (value) => widget.onChange(value),
       obscureText: hidden,
       obscuringCharacter: "•",
       maxLines: 1,
-      scrollPadding: const EdgeInsets.all(mainUnit / 2),
+      scrollPadding: EdgeInsets.all(Units().spacing / 2),
       scrollPhysics: const BouncingScrollPhysics(),
       style: Theme.of(context).textTheme.labelMedium,
       textInputAction: TextInputAction.next,
@@ -44,7 +44,7 @@ class _PasswordInputWidgetState extends State<PasswordInputWidget> {
         errorText: null,
         suffixIcon: IconButton(
           onPressed: () => setState(() => hidden = !hidden),
-          icon: Icon(hidden ? PhosphorIcons.eye : PhosphorIcons.eyeSlash, color: colorTertiary, size: 16),
+          icon: Icon(hidden ? PhosphorIcons.eye : PhosphorIcons.eyeSlash, color: Theme.of(context).colorScheme.tertiary, size: 16),
         ),
       ),
     );

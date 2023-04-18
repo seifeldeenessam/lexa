@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:lexa/view_model/theme/constants.dart';
 
-FloatingActionButtonThemeData floatingActionButtonThemeData() {
-  return const FloatingActionButtonThemeData(
+FloatingActionButtonThemeData lightFloatingActionButtonThemeData() {
+  return FloatingActionButtonThemeData(
     elevation: 0,
-    backgroundColor: colorPrimary,
+    backgroundColor: LightThemeColors().primary,
+  );
+}
+
+FloatingActionButtonThemeData darkFloatingActionButtonThemeData() {
+  return FloatingActionButtonThemeData(
+    elevation: 0,
+    backgroundColor: DarkThemeColors().primary,
   );
 }

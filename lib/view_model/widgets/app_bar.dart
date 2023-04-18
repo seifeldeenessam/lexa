@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:lexa/view_model/theme/constants.dart';
 
 class AppBarWidget extends StatelessWidget {
   final String title;
@@ -13,7 +12,7 @@ class AppBarWidget extends StatelessWidget {
     return AppBar(
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
-        icon: const Icon(PhosphorIcons.arrowLeft, color: colorPrimary, size: 24),
+        icon: Icon(PhosphorIcons.arrowLeft, color: Theme.of(context).colorScheme.primary, size: 24),
       ),
       title: Text(title),
       automaticallyImplyLeading: false,

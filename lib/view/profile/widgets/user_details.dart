@@ -32,28 +32,28 @@ class _UserDetailsState extends State<UserDetails> {
             width: 64,
             height: 64,
             decoration: BoxDecoration(
-              border: Border.all(width: 1, color: colorSecondary, strokeAlign: BorderSide.strokeAlignOutside),
+              border: Border.all(width: 1, color: Theme.of(context).colorScheme.secondary, strokeAlign: BorderSide.strokeAlignOutside),
               borderRadius: BorderRadius.circular(240),
               image: DecorationImage(image: AssetImage('assets/images/avatars/$selectedImage.jpg'), fit: BoxFit.cover),
             ),
             clipBehavior: Clip.hardEdge,
           ),
         ),
-        const SizedBox(width: mainUnit / 2),
+        SizedBox(width: Units().spacing / 2),
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Saif Eldeen Essam", style: Theme.of(context).textTheme.titleMedium?.copyWith(color: colorPrimary)),
-              Text('+20 155 823 7511', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: colorTertiary)),
+              Text("Saif Eldeen Essam", style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.primary)),
+              Text('+20 155 823 7511', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.tertiary)),
             ],
           ),
         ),
         ButtonWidget(
           action: () {},
           icon: widget.isPremium ? PhosphorIcons.crownFill : PhosphorIcons.crownSimple,
-          iconColor: widget.isPremium ? colorGold : colorTertiary,
+          iconColor: widget.isPremium ? GlobalColors().pendding : Theme.of(context).colorScheme.tertiary,
           type: ButtonTypes.secondary,
         )
       ],
@@ -79,7 +79,7 @@ class ModalBody extends StatelessWidget {
               width: 64,
               height: 64,
               decoration: BoxDecoration(
-                border: Border.all(width: 1, color: colorSecondary, strokeAlign: BorderSide.strokeAlignOutside),
+                border: Border.all(width: 1, color: Theme.of(context).colorScheme.secondary, strokeAlign: BorderSide.strokeAlignOutside),
                 borderRadius: BorderRadius.circular(240),
                 image: DecorationImage(image: AssetImage('assets/images/avatars/$i.jpg'), fit: BoxFit.cover),
               ),
@@ -95,8 +95,8 @@ class ModalBody extends StatelessWidget {
     return GridView.count(
       shrinkWrap: true,
       crossAxisCount: 3,
-      mainAxisSpacing: mainUnit,
-      crossAxisSpacing: mainUnit,
+      mainAxisSpacing: Units().spacing,
+      crossAxisSpacing: Units().spacing,
       physics: const BouncingScrollPhysics(),
       children: renderAvatars(),
     );

@@ -25,7 +25,7 @@ class _PhoneEntryScreenState extends State<PhoneEntryScreen> {
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: PhoneEntryScreenViewModel().title)),
       body: Padding(
-        padding: const EdgeInsets.all(mainUnit),
+        padding: EdgeInsets.all(Units().spacing),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -36,7 +36,7 @@ class _PhoneEntryScreenState extends State<PhoneEntryScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   PhoneInputWidget(placeholder: "Phone number", onChange: _phoneChange, validator: phoneNumberValidator),
-                  const SizedBox(height: mainUnit),
+                  SizedBox(height: Units().spacing),
                   ButtonWidget(action: () => PhoneEntryScreenViewModel().submit(context, _formKey, _phone), label: "Continue"),
                 ],
               ),

@@ -62,10 +62,7 @@ class CountryCodeSelector extends StatefulWidget {
 }
 
 class _CountryCodeSelectorState extends State<CountryCodeSelector> {
-  Map<String, String> selectedCountry = {
-    "code": "+20",
-    "flag": "eg",
-  };
+  Map<String, String> selectedCountry = {"code": "+20", "flag": "eg"};
 
   void _countryChange(value) {
     setState(() {
@@ -81,9 +78,8 @@ class _CountryCodeSelectorState extends State<CountryCodeSelector> {
     return GestureDetector(
       onTap: () => showModal(context, 'Choose your country', ModalBody(onChange: _countryChange)),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2),
+        padding: EdgeInsets.all(Units().spacing / 2),
         child: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
           spacing: Units().spacing / 4,
           children: [
             Image.asset('assets/images/flags/${selectedCountry["flag"]}.png', width: 24, height: 16),

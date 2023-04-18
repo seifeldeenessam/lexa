@@ -32,7 +32,7 @@ class _UserDetailsState extends State<UserDetails> {
             width: 64,
             height: 64,
             decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Theme.of(context).colorScheme.secondary, strokeAlign: BorderSide.strokeAlignOutside),
+              border: Border.all(color: Theme.of(context).colorScheme.tertiary, strokeAlign: BorderSide.strokeAlignOutside),
               borderRadius: BorderRadius.circular(240),
               image: DecorationImage(image: AssetImage('assets/images/avatars/$selectedImage.jpg'), fit: BoxFit.cover),
             ),
@@ -55,7 +55,7 @@ class _UserDetailsState extends State<UserDetails> {
           icon: widget.isPremium ? PhosphorIcons.fill.crown : PhosphorIcons.light.crownSimple,
           iconColor: widget.isPremium ? GlobalColors().pendding : Theme.of(context).colorScheme.tertiary,
           type: ButtonTypes.secondary,
-        )
+        ),
       ],
     );
   }
@@ -79,7 +79,7 @@ class ModalBody extends StatelessWidget {
               width: 64,
               height: 64,
               decoration: BoxDecoration(
-                border: Border.all(width: 1, color: Theme.of(context).colorScheme.secondary, strokeAlign: BorderSide.strokeAlignOutside),
+                border: Border.all(color: Theme.of(context).colorScheme.tertiary, strokeAlign: BorderSide.strokeAlignOutside),
                 borderRadius: BorderRadius.circular(240),
                 image: DecorationImage(image: AssetImage('assets/images/avatars/$i.jpg'), fit: BoxFit.cover),
               ),

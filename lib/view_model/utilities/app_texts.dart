@@ -22,7 +22,7 @@ class AppTexts {
   // Cards create screen texts
   final String cardsCreateScreenTitle = "Add card";
   // Camera screen texts
-  final String cameraScreenTitle = "Take a photo";
+  final String cameraScreenTitle = "Capture Card";
   final List<String> cameraScreenGuide = [
     "1. Fit your card into the frame",
     "2. Most cards are shiny so indirect light could be better",

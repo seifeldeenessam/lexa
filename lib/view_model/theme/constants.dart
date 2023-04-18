@@ -25,4 +25,5 @@ class GlobalColors {
 class Units {
   final double spacing = 24.0;
   final double borderRadius = 12.0;
+  final double cardAspectRatio = 3 / 2;
 }

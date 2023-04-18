@@ -12,6 +12,7 @@ void main() {
         routes: routesHandler,
         theme: lightThemeData(),
         darkTheme: darkThemeData(),
+        themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
       ),
     );

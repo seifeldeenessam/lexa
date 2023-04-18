@@ -115,7 +115,7 @@ class _CheckboxRecordWidgetState extends State<CheckboxRecordWidget> {
             ),
             ButtonWidget(
               action: () {},
-              icon: widget.isChecked == 1 ? PhosphorIcons.regular.checkSquare : PhosphorIcons.regular.square,
+              icon: widget.isChecked == 1 ? PhosphorIcons.light.checkSquare : PhosphorIcons.light.square,
               iconColor: Theme.of(context).colorScheme.primary,
               type: ButtonTypes.secondary,
             ),

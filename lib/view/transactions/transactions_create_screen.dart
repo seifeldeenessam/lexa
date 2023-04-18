@@ -45,7 +45,7 @@ class _TransactionsCreateScreenState extends State<TransactionsCreateScreen> {
         child: AppBarWidget(
           title: TransactionsCreateScreenViewModel().title,
           actions: [
-            ButtonWidget(action: () => Navigator.pushNamed(context, '/transfer/create'), icon: PhosphorIcons.regular.swap, backgroundColor: Colors.transparent, type: ButtonTypes.primary),
+            ButtonWidget(action: () => Navigator.pushNamed(context, '/transfer/create'), icon: PhosphorIcons.light.swap, backgroundColor: Colors.transparent, type: ButtonTypes.primary),
           ],
         ),
       ),

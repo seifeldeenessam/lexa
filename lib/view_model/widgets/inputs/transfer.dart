@@ -24,7 +24,7 @@ class TransferInputWidget extends StatelessWidget {
       children: [
         Expanded(child: DropdownInputWidget(label: "Sender", items: senderItems, onChange: senderChange)),
         SizedBox(width: Units().spacing / 2),
-        Icon(PhosphorIcons.regular.swap, color: Theme.of(context).colorScheme.primary, size: 24),
+        Icon(PhosphorIcons.light.swap, color: Theme.of(context).colorScheme.primary, size: 24),
         SizedBox(width: Units().spacing / 2),
         Expanded(child: DropdownInputWidget(label: "Reciver", items: recieverItems, onChange: recieverChange)),
       ],

@@ -28,7 +28,7 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget renderButtonContent() {
       if (label != null) return Text(label!, style: TextStyle(color: labelColor));
-      return Icon(icon!, color: iconColor);
+      return PhosphorIcon(icon!, color: iconColor);
     }
 
     Color renderBackgroundColor() {

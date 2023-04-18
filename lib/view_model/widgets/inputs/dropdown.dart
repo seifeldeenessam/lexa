@@ -51,7 +51,7 @@ class _DropdownInputWidgetState extends State<DropdownInputWidget> {
           children: [
             Text(_selectedValue, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: _selectedValue != widget.label ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary)),
             SizedBox(width: Units().spacing / 2),
-            Icon(PhosphorIcons.regular.caretDown, color: Theme.of(context).colorScheme.tertiary, size: 16),
+            Icon(PhosphorIcons.light.caretDown, color: Theme.of(context).colorScheme.tertiary, size: 16),
           ],
         ),
       ),

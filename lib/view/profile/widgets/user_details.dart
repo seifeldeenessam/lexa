@@ -52,7 +52,7 @@ class _UserDetailsState extends State<UserDetails> {
         ),
         ButtonWidget(
           action: () {},
-          icon: widget.isPremium ? PhosphorIcons.fill.crown : PhosphorIcons.regular.crownSimple,
+          icon: widget.isPremium ? PhosphorIcons.fill.crown : PhosphorIcons.light.crownSimple,
           iconColor: widget.isPremium ? GlobalColors().pendding : Theme.of(context).colorScheme.tertiary,
           type: ButtonTypes.secondary,
         )

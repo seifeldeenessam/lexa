@@ -24,7 +24,7 @@ class _DateInputWidgetState extends State<DateInputWidget> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(PhosphorIcons.calendar, color: Theme.of(context).colorScheme.tertiary, size: 24),
+            Icon(PhosphorIcons.regular.calendar, color: Theme.of(context).colorScheme.tertiary, size: 24),
             SizedBox(width: Units().spacing / 2),
             Text(widget.label, style: Theme.of(context).textTheme.labelSmall),
           ],

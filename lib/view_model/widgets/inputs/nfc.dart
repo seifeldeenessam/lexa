@@ -18,7 +18,7 @@ class NFCInputWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(PhosphorIcons.scan, color: Theme.of(context).colorScheme.tertiary, size: 24),
+            Icon(PhosphorIcons.regular.scan, color: Theme.of(context).colorScheme.tertiary, size: 24),
             SizedBox(width: Units().spacing / 2),
             Text(label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Theme.of(context).colorScheme.tertiary)),
           ],

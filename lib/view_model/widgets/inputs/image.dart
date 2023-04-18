@@ -33,7 +33,7 @@ class _ImageInputWidgetState extends State<ImageInputWidget> {
           children: [
             Row(
               children: [
-                Icon(_imagePath != null ? PhosphorIcons.cameraFill : PhosphorIcons.camera, color: _imagePath != null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary, size: 24),
+                Icon(_imagePath != null ? PhosphorIcons.fill.camera : PhosphorIcons.regular.camera, color: _imagePath != null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary, size: 24),
                 SizedBox(width: Units().spacing / 2),
                 Text(_imagePath != null ? "Card captured" : widget.label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: _imagePath != null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary)),
               ],

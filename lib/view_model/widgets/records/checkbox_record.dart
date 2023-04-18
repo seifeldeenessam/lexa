@@ -82,7 +82,7 @@ class _CheckboxRecordWidgetState extends State<CheckboxRecordWidget> {
           color: GlobalColors().error,
           borderRadius: BorderRadius.circular(Units().borderRadius),
         ),
-        child: Icon(PhosphorIcons.trashFill, color: Theme.of(context).colorScheme.primary),
+        child: Icon(PhosphorIcons.fill.trash, color: Theme.of(context).colorScheme.primary),
       ),
       child: IntrinsicHeight(
         child: Row(
@@ -115,7 +115,7 @@ class _CheckboxRecordWidgetState extends State<CheckboxRecordWidget> {
             ),
             ButtonWidget(
               action: () {},
-              icon: widget.isChecked == 1 ? PhosphorIcons.checkSquare : PhosphorIcons.square,
+              icon: widget.isChecked == 1 ? PhosphorIcons.regular.checkSquare : PhosphorIcons.regular.square,
               iconColor: Theme.of(context).colorScheme.primary,
               type: ButtonTypes.secondary,
             ),

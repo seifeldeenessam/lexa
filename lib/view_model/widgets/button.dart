@@ -1,16 +1,14 @@
 import 'package:lexa/view_model/theme/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-enum ButtonTypes {
-  primary,
-  secondary,
-}
+enum ButtonTypes { primary, secondary }
 
 class ButtonWidget extends StatelessWidget {
   final VoidCallback action;
   final String? label;
   final Color? labelColor;
-  final IconData? icon;
+  final PhosphorIconData? icon;
   final Color? iconColor;
   final Color? backgroundColor;
   final ButtonTypes type;
@@ -28,53 +26,25 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsets renderPadding() {
-      if (type == ButtonTypes.secondary) {
-        return const EdgeInsets.all(0);
-      }
-
-      return EdgeInsets.symmetric(horizontal: Units().spacing, vertical: Units().spacing - 8);
-    }
-
     Widget renderButtonContent() {
-      if (label != null) {
-        if (type == ButtonTypes.primary) {
-          return Text(label!);
-        } else {
-          return Text(label!);
-        }
-      }
-
-      if (icon != null) {
-        if (type == ButtonTypes.primary) {
-          return Icon(icon!, color: iconColor);
-        } else {
-          return Icon(icon!, color: iconColor);
-        }
-      }
-
-      throw Exception('No content provided');
+      if (label != null) return Text(label!, style: TextStyle(color: labelColor));
+      return Icon(icon!, color: iconColor);
     }
 
     Color renderBackgroundColor() {
-      if (type == ButtonTypes.secondary) {
-        return Colors.transparent;
-      }
-
-      if (backgroundColor != null) {
-        return backgroundColor!;
-      }
-
+      if (type == ButtonTypes.secondary) return Colors.transparent;
+      if (backgroundColor != null) return backgroundColor!;
       return Theme.of(context).colorScheme.onBackground;
+    }
+
+    EdgeInsets renderPadding() {
+      if (type == ButtonTypes.secondary) return const EdgeInsets.all(0);
+      return EdgeInsets.symmetric(horizontal: Units().spacing, vertical: Units().spacing - 8);
     }
 
     return TextButton(
       onPressed: action,
-      style: TextButton.styleFrom(
-        backgroundColor: renderBackgroundColor(),
-        padding: renderPadding(),
-        textStyle: Theme.of(context).textTheme.labelMedium,
-      ),
+      style: TextButton.styleFrom(backgroundColor: renderBackgroundColor(), padding: renderPadding(), textStyle: Theme.of(context).textTheme.labelMedium),
       child: renderButtonContent(),
     );
   }

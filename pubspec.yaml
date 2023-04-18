@@ -2,19 +2,18 @@ name: lexa
 description: A mobile app for managing bills, cards and more financial stuff.
 publish_to: 'none'
 version: 1.0.0+1
-
 environment:
   sdk: '>=2.18.6 <3.0.0'
 dependencies:
+  camera: ^0.10.4
+  flip_card: ^0.7.0
   flutter:
     sdk: flutter
-  phosphor_flutter: ^2.0.0
   flutter_svg: ^2.0.5
-  flip_card: ^0.7.0
-  sqflite: ^2.2.0+3
   intl: ^0.18.0
-  camera: ^0.10.3
-  path_provider: ^2.0.11
+  path_provider: ^2.0.14
+  phosphor_flutter: ^2.0.0
+  sqflite: ^2.2.6
 dev_dependencies:
   flutter_test:
     sdk: flutter

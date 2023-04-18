@@ -12,7 +12,7 @@ class AppBarWidget extends StatelessWidget {
     return AppBar(
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
-        icon: Icon(PhosphorIcons.arrowLeft, color: Theme.of(context).colorScheme.primary, size: 24),
+        icon: Icon(PhosphorIcons.regular.arrowLeft, color: Theme.of(context).colorScheme.primary, size: 24),
       ),
       title: Text(title),
       automaticallyImplyLeading: false,

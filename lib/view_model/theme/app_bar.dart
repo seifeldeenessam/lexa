@@ -11,11 +11,11 @@ AppBarTheme lightAppBarTheme() {
     titleTextStyle: lightTextTheme().titleLarge,
     systemOverlayStyle: SystemUiOverlayStyle(
       // Status bar theme
-      statusBarBrightness: Brightness.dark, // IOS
-      statusBarIconBrightness: Brightness.light, // Android
+      statusBarBrightness: Brightness.light, // IOS
+      statusBarIconBrightness: Brightness.dark, // Android
       // Navigation bar theme
       systemNavigationBarColor: LightThemeColors().background,
-      systemNavigationBarIconBrightness: Brightness.dark,
+      systemNavigationBarIconBrightness: Brightness.light,
     ),
   );
 }

@@ -44,7 +44,7 @@ class _PasswordInputWidgetState extends State<PasswordInputWidget> {
         errorText: null,
         suffixIcon: IconButton(
           onPressed: () => setState(() => hidden = !hidden),
-          icon: Icon(hidden ? PhosphorIcons.eye : PhosphorIcons.eyeSlash, color: Theme.of(context).colorScheme.tertiary, size: 16),
+          icon: PhosphorIcon(hidden ? PhosphorIcons.regular.eye : PhosphorIcons.regular.eyeSlash, color: Theme.of(context).colorScheme.tertiary, size: 16),
         ),
       ),
     );

@@ -65,7 +65,7 @@ class _ExpandableRecordState extends State<ExpandableRecord> {
                   scaleY: _visibility ? -1 : 1,
                   child: ButtonWidget(
                     action: () => setState(() => _visibility = !_visibility),
-                    icon: PhosphorIcons.caretDownBold,
+                    icon: PhosphorIcons.bold.caretDown,
                     type: ButtonTypes.secondary,
                     iconColor: Theme.of(context).colorScheme.tertiary,
                   ),

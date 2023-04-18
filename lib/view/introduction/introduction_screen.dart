@@ -40,7 +40,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 padding: EdgeInsets.all(Units().spacing * 2),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.15,
-                  child: SvgPicture.asset(SVGPaths().appLogo, color: Theme.of(context).colorScheme.primary),
+                  child: SvgPicture.asset(SVGPaths().appLogo, colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn)),
                 ),
               ),
               Expanded(

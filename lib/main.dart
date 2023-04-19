@@ -1,5 +1,5 @@
-import 'package:lexa/view_model/theme/theme.dart';
-import 'package:lexa/view_model/utilities/routes_handler.dart';
+import 'package:lexa/theme/theme.dart';
+import 'package:lexa/utilities/routes_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -12,7 +12,6 @@ void main() {
         routes: routesHandler,
         theme: lightThemeData(),
         darkTheme: darkThemeData(),
-        themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
       ),
     );

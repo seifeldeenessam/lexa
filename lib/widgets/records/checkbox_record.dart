@@ -1,5 +1,5 @@
 import 'package:lexa/utilities/constants.dart';
-import 'package:lexa/views/widgets/button.dart';
+import 'package:lexa/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 

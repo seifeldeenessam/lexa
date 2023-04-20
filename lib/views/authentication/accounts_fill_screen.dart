@@ -2,15 +2,15 @@ import 'package:lexa/models/database.dart';
 import 'package:lexa/utilities/app_texts.dart';
 import 'package:lexa/utilities/get_data_from_json.dart';
 import 'package:lexa/utilities/show_snackbar.dart';
-import 'package:lexa/views/widgets/guiding_paragraph.dart';
+import 'package:lexa/widgets/guiding_paragraph.dart';
 import 'package:lexa/utilities/constants.dart';
 import 'package:lexa/validators/banks_account_validator.dart';
 import 'package:lexa/validators/cash_account_validator.dart';
 import 'package:lexa/validators/savings_account_validator.dart';
-import 'package:lexa/views/widgets/app_bar.dart';
+import 'package:lexa/widgets/app_bar.dart';
 import 'package:lexa/utilities/show_modal.dart';
-import 'package:lexa/views/widgets/button.dart';
-import 'package:lexa/views/widgets/inputs/text.dart';
+import 'package:lexa/widgets/button.dart';
+import 'package:lexa/widgets/inputs/text.dart';
 import 'package:flutter/material.dart';
 
 class AccountsFillScreen extends StatefulWidget {

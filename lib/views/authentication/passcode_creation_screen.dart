@@ -1,10 +1,10 @@
 import 'package:lexa/utilities/app_texts.dart';
 import 'package:lexa/utilities/show_snackbar.dart';
-import 'package:lexa/views/widgets/guiding_paragraph.dart';
+import 'package:lexa/widgets/guiding_paragraph.dart';
 import 'package:lexa/utilities/constants.dart';
-import 'package:lexa/views/widgets/app_bar.dart';
-import 'package:lexa/views/widgets/number_pad.dart';
-import 'package:lexa/views/widgets/inputs/pincode.dart';
+import 'package:lexa/widgets/app_bar.dart';
+import 'package:lexa/widgets/number_pad.dart';
+import 'package:lexa/widgets/inputs/pincode.dart';
 import 'package:flutter/material.dart';
 
 class PasscodeCreationScreen extends StatefulWidget {

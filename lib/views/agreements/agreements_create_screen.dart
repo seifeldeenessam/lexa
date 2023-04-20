@@ -1,7 +1,7 @@
 import 'package:lexa/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:lexa/utilities/app_texts.dart';
-import 'package:lexa/views/widgets/app_bar.dart';
+import 'package:lexa/widgets/app_bar.dart';
 
 class AgreementsCreateScreen extends StatefulWidget {
   const AgreementsCreateScreen({super.key});

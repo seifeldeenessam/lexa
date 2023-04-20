@@ -1,5 +1,5 @@
-import 'package:lexa/views/widgets/setting.dart';
-import 'package:lexa/views/widgets/user_details.dart';
+import 'package:lexa/widgets/setting.dart';
+import 'package:lexa/widgets/user_details.dart';
 import 'package:lexa/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';

@@ -1,10 +1,10 @@
 import 'package:lexa/utilities/constants.dart';
 import 'package:lexa/utilities/svg_paths.dart';
-import 'package:lexa/views/widgets/button.dart';
+import 'package:lexa/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lexa/views/widgets/inputs/password.dart';
-import 'package:lexa/views/widgets/inputs/phone.dart';
+import 'package:lexa/widgets/inputs/password.dart';
+import 'package:lexa/widgets/inputs/phone.dart';
 import 'package:lexa/validators/password_validator.dart';
 import 'package:lexa/validators/phone_number_validator.dart';
 

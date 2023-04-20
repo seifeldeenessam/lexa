@@ -3,13 +3,13 @@ import 'package:lexa/models/transaction.dart';
 import 'package:lexa/utilities/app_texts.dart';
 import 'package:lexa/utilities/show_snackbar.dart';
 import 'package:lexa/utilities/string_extentions.dart';
-import 'package:lexa/views/widgets/app_bar.dart';
+import 'package:lexa/widgets/app_bar.dart';
 import 'package:lexa/utilities/constants.dart';
 import 'package:lexa/utilities/format_date.dart';
-import 'package:lexa/views/widgets/button.dart';
-import 'package:lexa/views/widgets/inputs/date.dart';
-import 'package:lexa/views/widgets/inputs/dropdown.dart';
-import 'package:lexa/views/widgets/inputs/text.dart';
+import 'package:lexa/widgets/button.dart';
+import 'package:lexa/widgets/inputs/date.dart';
+import 'package:lexa/widgets/inputs/dropdown.dart';
+import 'package:lexa/widgets/inputs/text.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 

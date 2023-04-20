@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:lexa/utilities/show_modal.dart';
 import 'package:lexa/utilities/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:lexa/views/widgets/button.dart';
+import 'package:lexa/widgets/button.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 

@@ -3,10 +3,10 @@ import 'package:lexa/models/bookmark.dart';
 import 'package:lexa/utilities/constants.dart';
 import 'package:lexa/utilities/app_texts.dart';
 import 'package:lexa/utilities/show_snackbar.dart';
-import 'package:lexa/views/widgets/app_bar.dart';
-import 'package:lexa/views/widgets/button.dart';
-import 'package:lexa/views/widgets/inputs/text.dart';
-import 'package:lexa/views/widgets/inputs/switch.dart';
+import 'package:lexa/widgets/app_bar.dart';
+import 'package:lexa/widgets/button.dart';
+import 'package:lexa/widgets/inputs/text.dart';
+import 'package:lexa/widgets/inputs/switch.dart';
 import 'package:flutter/material.dart';
 
 class WishlistCreateScreen extends StatefulWidget {

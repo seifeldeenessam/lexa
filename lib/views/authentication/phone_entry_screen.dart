@@ -1,10 +1,10 @@
 import 'package:lexa/utilities/app_texts.dart';
-import 'package:lexa/views/widgets/guiding_paragraph.dart';
+import 'package:lexa/widgets/guiding_paragraph.dart';
 import 'package:lexa/validators/phone_number_validator.dart';
-import 'package:lexa/views/widgets/app_bar.dart';
+import 'package:lexa/widgets/app_bar.dart';
 import 'package:lexa/utilities/constants.dart';
-import 'package:lexa/views/widgets/button.dart';
-import 'package:lexa/views/widgets/inputs/phone.dart';
+import 'package:lexa/widgets/button.dart';
+import 'package:lexa/widgets/inputs/phone.dart';
 import 'package:flutter/material.dart';
 
 class PhoneEntryScreen extends StatefulWidget {

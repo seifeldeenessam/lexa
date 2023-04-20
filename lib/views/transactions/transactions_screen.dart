@@ -1,6 +1,6 @@
 import 'package:lexa/models/database.dart';
 import 'package:lexa/utilities/sort_transactions_by_date.dart';
-import 'package:lexa/views/widgets/empty_message.dart';
+import 'package:lexa/widgets/empty_message.dart';
 import 'package:flutter/material.dart';
 
 class TransactionsScreen extends StatelessWidget {

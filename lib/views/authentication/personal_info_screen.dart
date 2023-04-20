@@ -1,13 +1,13 @@
 import 'package:lexa/utilities/app_texts.dart';
-import 'package:lexa/views/widgets/guiding_paragraph.dart';
+import 'package:lexa/widgets/guiding_paragraph.dart';
 import 'package:lexa/utilities/constants.dart';
 import 'package:lexa/validators/email_validator.dart';
 import 'package:lexa/validators/name_validator.dart';
 import 'package:lexa/validators/password_validator.dart';
-import 'package:lexa/views/widgets/app_bar.dart';
-import 'package:lexa/views/widgets/button.dart';
-import 'package:lexa/views/widgets/inputs/text.dart';
-import 'package:lexa/views/widgets/inputs/password.dart';
+import 'package:lexa/widgets/app_bar.dart';
+import 'package:lexa/widgets/button.dart';
+import 'package:lexa/widgets/inputs/text.dart';
+import 'package:lexa/widgets/inputs/password.dart';
 import 'package:flutter/material.dart';
 
 class PersonalInfoEntryScreen extends StatefulWidget {

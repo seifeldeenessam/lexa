@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lexa/utilities/constants.dart';
-import 'package:lexa/views/widgets/inputs/dropdown.dart';
+import 'package:lexa/widgets/inputs/dropdown.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class TransferInputWidget extends StatelessWidget {

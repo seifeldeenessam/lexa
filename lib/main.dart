@@ -1,4 +1,4 @@
-import 'package:lexa/theme/theme.dart';
+import 'package:lexa/themes/theme.dart';
 import 'package:lexa/utilities/routes_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

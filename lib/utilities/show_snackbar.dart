@@ -1,4 +1,4 @@
-import 'package:lexa/theme/constants.dart';
+import 'package:lexa/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 showSnackBar(dynamic context, bool status, String message) {

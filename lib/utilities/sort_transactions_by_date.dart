@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lexa/theme/constants.dart';
-import 'package:lexa/widgets/records/expandable_record.dart';
+import 'package:lexa/utilities/constants.dart';
+import 'package:lexa/views/widgets/records/expandable_record.dart';
 import 'package:lexa/utilities/create_valid_date.dart';
 import 'package:lexa/utilities/format_date.dart';
 

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:lexa/screens/agreements/agreements_create_screen.dart';
-import 'package:lexa/screens/authentication/accounts_fill_screen.dart';
-import 'package:lexa/screens/authentication/passcode_creation_screen.dart';
-import 'package:lexa/screens/authentication/personal_info_screen.dart';
-import 'package:lexa/screens/authentication/phone_verification_screen.dart';
-import 'package:lexa/screens/cards/cards_create_screen.dart';
-import 'package:lexa/screens/authentication/phone_entry_screen.dart';
-import 'package:lexa/screens/introduction/introduction_screen.dart';
-import 'package:lexa/screens/navigation/navigation_handler.dart';
-import 'package:lexa/screens/transactions/transactions_create_screen.dart';
-import 'package:lexa/screens/transfers/transfers_create_screen.dart';
-import 'package:lexa/screens/wishlist/wishlist_create_screen.dart';
+import 'package:lexa/views/agreements/agreements_create_screen.dart';
+import 'package:lexa/views/authentication/accounts_fill_screen.dart';
+import 'package:lexa/views/authentication/passcode_creation_screen.dart';
+import 'package:lexa/views/authentication/personal_info_screen.dart';
+import 'package:lexa/views/authentication/phone_verification_screen.dart';
+import 'package:lexa/views/cards/cards_create_screen.dart';
+import 'package:lexa/views/authentication/phone_entry_screen.dart';
+import 'package:lexa/views/introduction/introduction_screen.dart';
+import 'package:lexa/views/navigation/navigation_handler.dart';
+import 'package:lexa/views/transactions/transactions_create_screen.dart';
+import 'package:lexa/views/transfers/transfers_create_screen.dart';
+import 'package:lexa/views/wishlist/wishlist_create_screen.dart';
 
 Map<String, WidgetBuilder> get routesHandler {
   return {

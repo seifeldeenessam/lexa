@@ -16,7 +16,7 @@ class EmptyMessage extends StatelessWidget {
       children: [
         SvgPicture.asset('assets/svgs/illustrations/$illustartion.svg', width: MediaQuery.of(context).size.width),
         SizedBox(height: Units().spacing),
-        Text(message, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
+        FittedBox(child: Text(message, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.tertiary))),
         SizedBox(height: MediaQuery.of(context).size.width * 0.4),
       ],
     );

@@ -59,18 +59,3 @@ class ButtonWidget extends StatelessWidget {
     );
   }
 }
-
-extension ButtonExtension on ButtonWidget {
-  TextButton numberPadButton(BuildContext context) {
-    Widget renderButtonContent() {
-      if (label != null) return Text(label!, style: TextStyle(color: labelColor));
-      return PhosphorIcon(icon!, color: iconColor);
-    }
-
-    return TextButton(
-      onPressed: action,
-      style: TextButton.styleFrom(textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 32)),
-      child: renderButtonContent(),
-    );
-  }
-}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexa/utilities/constants.dart';
 import 'package:lexa/widgets/button.dart';
+import 'package:lexa/extensions/button.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class PINCodeInputWidget extends StatelessWidget {
@@ -37,21 +38,13 @@ class PINCodeField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String renderText(number) {
+    String renderText(String number) {
       String character = "−";
 
       if (secured == true) {
-        if (number == "") {
-          character = character;
-        } else {
-          character = "∗";
-        }
+        character = number == "" ? character : "∗";
       } else {
-        if (number == "") {
-          character = character;
-        } else {
-          character = number;
-        }
+        character = number == "" ? character : number;
       }
 
       return character;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexa/utilities/constants.dart';
 
-TextButtonThemeData lightTextButtonThemeData() {
+TextButtonThemeData lightTextButtonTheme() {
   return TextButtonThemeData(
     style: TextButton.styleFrom(
       alignment: Alignment.center,
@@ -17,7 +17,7 @@ TextButtonThemeData lightTextButtonThemeData() {
   );
 }
 
-TextButtonThemeData darkTextButtonThemeData() {
+TextButtonThemeData darkTextButtonTheme() {
   return TextButtonThemeData(
     style: TextButton.styleFrom(
       alignment: Alignment.center,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexa/utilities/constants.dart';
 
-ColorScheme lightThemeColorScheme() {
+ColorScheme lightColorScheme() {
   return ColorScheme.light(
     brightness: Brightness.dark,
     background: LightThemeColors().background,
@@ -10,7 +10,7 @@ ColorScheme lightThemeColorScheme() {
   );
 }
 
-ColorScheme darkThemeColorScheme() {
+ColorScheme darkColorScheme() {
   return ColorScheme.dark(
     brightness: Brightness.light,
     background: DarkThemeColors().background,

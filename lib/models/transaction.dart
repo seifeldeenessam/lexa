@@ -27,7 +27,7 @@ class Transaction {
     required this.updatedAt,
   });
 
-  factory Transaction.fromJSON(Map<String, Object?> json) {
+  factory Transaction.fromJSON(Map<String, dynamic> json) {
     return Transaction(
       id: json["id"] as int,
       type: json["type"] as String,
@@ -44,7 +44,7 @@ class Transaction {
     );
   }
 
-  Map<String, Object?> toJSON() {
+  Map<String, dynamic> toJSON() {
     return {
       "id": id,
       "type": type,

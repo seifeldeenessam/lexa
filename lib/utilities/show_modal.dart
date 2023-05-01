@@ -6,7 +6,7 @@ void showModal(dynamic context, String title, Widget body) {
     context: context,
     isScrollControlled: true,
     clipBehavior: Clip.hardEdge,
-    barrierColor: Theme.of(context).colorScheme.tertiary.withOpacity(0.25),
+    barrierColor: GlobalColors().grey.withOpacity(0.25),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(Units().borderRadius),

@@ -7,7 +7,7 @@ AppBarTheme lightAppBarTheme() {
   return AppBarTheme(
     elevation: 0,
     titleSpacing: 0,
-    backgroundColor: LightThemeColors().onBackground,
+    backgroundColor: Colors.transparent,
     titleTextStyle: lightTextTheme().titleLarge,
     systemOverlayStyle: SystemUiOverlayStyle(
       // Status bar theme
@@ -24,7 +24,7 @@ AppBarTheme darkAppBarTheme() {
   return AppBarTheme(
     elevation: 0,
     titleSpacing: 0,
-    backgroundColor: DarkThemeColors().onBackground,
+    backgroundColor: Colors.transparent,
     titleTextStyle: darkTextTheme().titleLarge,
     systemOverlayStyle: SystemUiOverlayStyle(
       // Status bar theme

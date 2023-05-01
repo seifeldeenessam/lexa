@@ -17,7 +17,7 @@ class Card {
     required this.updatedAt,
   });
 
-  factory Card.fromJSON(Map<String, Object?> json) {
+  factory Card.fromJSON(Map<String, dynamic> json) {
     return Card(
       id: json["id"] as String,
       image: json["image"] as String,
@@ -29,7 +29,7 @@ class Card {
     );
   }
 
-  Map<String, Object?> toJSON() {
+  Map<String, dynamic> toJSON() {
     return {
       "id": id,
       "image": image,

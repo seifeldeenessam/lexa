@@ -1,20 +1,25 @@
 import 'dart:convert';
 
-import 'package:lexa/utilities/show_modal.dart';
+import 'package:lexa/utilities/format_phone_number.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lexa/utilities/constants.dart';
+import 'package:lexa/utilities/show_modal.dart';
 
 class PhoneInputWidget extends StatefulWidget {
   final String placeholder;
-  final Function(String) onChange;
+  final String name;
+  final Function(String, dynamic, bool) onChange;
   final Function(String, String?) validator;
+  final bool? parse;
 
   const PhoneInputWidget({
     super.key,
     required this.placeholder,
+    required this.name,
     required this.onChange,
     required this.validator,
+    this.parse = false,
   });
 
   @override
@@ -22,25 +27,31 @@ class PhoneInputWidget extends StatefulWidget {
 }
 
 class _PhoneInputWidgetState extends State<PhoneInputWidget> {
-  String _selectedCountryCode = "+20";
+  late String _selectedCountryCode;
 
   void _selectedCountryCodeChange(value) => setState(() => _selectedCountryCode = value);
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedCountryCode = "+20";
+  }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       autocorrect: false,
       autofocus: false,
-      cursorColor: Theme.of(context).colorScheme.primary,
       enableSuggestions: false,
-      keyboardType: TextInputType.number,
-      onChanged: (value) => widget.onChange(_selectedCountryCode + value),
-      maxLines: 1,
+      onChanged: (value) => widget.onChange(widget.name, "$_selectedCountryCode ${formatPhoneNumber(value)}}", widget.parse!),
+      validator: (value) => widget.validator(_selectedCountryCode, value),
       scrollPadding: EdgeInsets.all(Units().spacing / 2),
       scrollPhysics: const BouncingScrollPhysics(),
       style: Theme.of(context).textTheme.labelMedium,
       textInputAction: TextInputAction.next,
-      validator: (value) => widget.validator(_selectedCountryCode, value),
+      cursorColor: Theme.of(context).colorScheme.primary,
+      keyboardType: TextInputType.number,
+      maxLines: 1,
       decoration: InputDecoration(
         hintMaxLines: 1,
         hintText: widget.placeholder,
@@ -64,28 +75,22 @@ class CountryCodeSelector extends StatefulWidget {
 class _CountryCodeSelectorState extends State<CountryCodeSelector> {
   Map<String, String> selectedCountry = {"code": "+20", "flag": "eg"};
 
-  void _countryChange(value) {
+  void _onChange(value) {
     setState(() {
       selectedCountry["code"] = value["code"];
       selectedCountry["flag"] = value["flag"];
       widget.onChange(value["code"]);
-      Navigator.pop(context);
     });
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => showModal(context, 'Choose your country', ModalBody(onChange: _countryChange)),
+      onTap: () => showModal(context, 'Choose your country', ModalBody(onChange: _onChange)),
       child: Padding(
         padding: EdgeInsets.all(Units().spacing / 2),
-        child: Wrap(
-          spacing: Units().spacing / 4,
-          children: [
-            Image.asset('assets/images/flags/${selectedCountry["flag"]}.png', width: 24, height: 16),
-            Text(selectedCountry["code"].toString(), style: Theme.of(context).textTheme.labelMedium),
-          ],
-        ),
+        child: Image.asset('assets/images/flags/${selectedCountry["flag"]}.png', width: Units().spacing),
       ),
     );
   }
@@ -136,11 +141,11 @@ class _ModalBodyState extends State<ModalBody> {
               decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
               child: Row(
                 children: [
-                  Image.asset('assets/images/flags/${_countries[index]["code"].toString().toLowerCase()}.png', width: 24, height: 16),
+                  Image.asset('assets/images/flags/${_countries[index]["code"].toString().toLowerCase()}.png', width: Units().spacing),
                   SizedBox(width: Units().spacing / 2),
                   Expanded(child: Text(_countries[index]["name"], style: Theme.of(context).textTheme.bodyMedium)),
                   SizedBox(width: Units().spacing / 2),
-                  Text(_countries[index]["dial_code"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.tertiary)),
+                  Text(_countries[index]["dial_code"], style: Theme.of(context).textTheme.bodySmall!.copyWith(color: GlobalColors().grey)),
                 ],
               ),
             ),

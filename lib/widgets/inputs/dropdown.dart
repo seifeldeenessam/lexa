@@ -6,7 +6,8 @@ import 'package:lexa/utilities/show_modal.dart';
 class DropdownInputWidget extends StatefulWidget {
   final String label;
   final List<dynamic>? items;
-  final Function(dynamic) onChange;
+  final String name;
+  final Function(String key, dynamic value) onChange;
   final bool required;
   final bool isDense;
 
@@ -14,6 +15,7 @@ class DropdownInputWidget extends StatefulWidget {
     super.key,
     required this.label,
     required this.items,
+    required this.name,
     required this.onChange,
     this.required = true,
     this.isDense = false,
@@ -27,7 +29,7 @@ class _DropdownInputWidgetState extends State<DropdownInputWidget> {
   late String _selectedValue;
 
   void _setSelectedValue(String value) {
-    widget.onChange(value);
+    widget.onChange(widget.name, value);
     setState(() => _selectedValue = value);
     Navigator.pop(context);
   }
@@ -49,9 +51,9 @@ class _DropdownInputWidgetState extends State<DropdownInputWidget> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(_selectedValue, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: _selectedValue != widget.label ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary)),
+            Text(_selectedValue, style: Theme.of(context).textTheme.labelSmall!.copyWith(color: _selectedValue != widget.label ? Theme.of(context).colorScheme.primary : GlobalColors().grey)),
             SizedBox(width: Units().spacing / 2),
-            Icon(PhosphorIcons.light.caretDown, color: Theme.of(context).colorScheme.tertiary, size: 16),
+            Icon(PhosphorIcons.light.caretDown, color: GlobalColors().grey, size: 16),
           ],
         ),
       ),

@@ -8,7 +8,7 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(
       MaterialApp(
-        initialRoute: '/',
+        initialRoute: '/intoduction',
         routes: routesHandler,
         theme: lightThemeData(),
         darkTheme: darkThemeData(),

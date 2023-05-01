@@ -3,21 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:lexa/utilities/constants.dart';
 
 class EmptyMessage extends StatelessWidget {
-  final String illustartion;
-  final String message;
+  final String? illustartion;
+  final String? message;
 
   const EmptyMessage({Key? key, required this.illustartion, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SvgPicture.asset('assets/svgs/illustrations/$illustartion.svg', width: MediaQuery.of(context).size.width),
+        SvgPicture.asset(illustartion!, width: MediaQuery.of(context).size.width * 0.8),
         SizedBox(height: Units().spacing),
-        FittedBox(child: Text(message, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.tertiary))),
-        SizedBox(height: MediaQuery.of(context).size.width * 0.4),
+        FittedBox(child: Text(message!, style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: GlobalColors().grey))),
       ],
     );
   }

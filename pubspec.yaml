@@ -23,6 +23,7 @@ flutter:
   assets:
     - assets/data/
     - assets/images/avatars/
+    - assets/images/backgrounds/
     - assets/images/categories/
     - assets/images/flags/
     - assets/svgs/branding/
@@ -30,6 +31,12 @@ flutter:
   fonts:
     - family: ReadexPro
       fonts:
+        - asset: assets/fonts/ReadexPro/ReadexPro-ExtraLight.ttf
+          style: normal
+          weight: 200
+        - asset: assets/fonts/ReadexPro/ReadexPro-Light.ttf
+          style: normal
+          weight: 300
         - asset: assets/fonts/ReadexPro/ReadexPro-Regular.ttf
           style: normal
           weight: 400
@@ -39,3 +46,6 @@ flutter:
         - asset: assets/fonts/ReadexPro/ReadexPro-SemiBold.ttf
           style: normal
           weight: 600
+        - asset: assets/fonts/ReadexPro/ReadexPro-Bold.ttf
+          style: normal
+          weight: 700

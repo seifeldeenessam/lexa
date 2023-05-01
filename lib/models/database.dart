@@ -79,13 +79,13 @@ class SQLite {
   }
 
   // Inserting data into database
-  Future<int> create(String table, Map<String, Object?> json) async {
+  Future<int> create(String table, Map<String, dynamic> json) async {
     Database database = await databaseStart;
     return await database.insert(table, json);
   }
 
   // Inserting data into [accounts] table
-  Future<int> insertAccountsValues(Map<String, Object?> json) async {
+  Future<int> insertAccountsValues(Map<String, dynamic> json) async {
     Database database = await databaseStart;
     return await database.rawInsert(
       "INSERT OR IGNORE INTO accounts VALUES (1, 'Cash', ?, ?), (2, 'Banks', ?, ?), (3, 'Savings', ?, ?);",

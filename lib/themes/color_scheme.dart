@@ -7,8 +7,6 @@ ColorScheme lightThemeColorScheme() {
     background: LightThemeColors().background,
     onBackground: LightThemeColors().onBackground,
     primary: LightThemeColors().primary,
-    secondary: LightThemeColors().secondary,
-    tertiary: LightThemeColors().tertiary,
   );
 }
 
@@ -18,7 +16,5 @@ ColorScheme darkThemeColorScheme() {
     background: DarkThemeColors().background,
     onBackground: DarkThemeColors().onBackground,
     primary: DarkThemeColors().primary,
-    secondary: DarkThemeColors().secondary,
-    tertiary: DarkThemeColors().tertiary,
   );
 }

@@ -21,7 +21,7 @@ class Bookmark {
     this.updatedAt,
   });
 
-  factory Bookmark.fromJSON(Map<String, Object?> json) {
+  factory Bookmark.fromJSON(Map<String, dynamic> json) {
     return Bookmark(
       id: json["id"] as int,
       title: json["title"] as String,

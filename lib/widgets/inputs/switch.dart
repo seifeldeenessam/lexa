@@ -28,12 +28,12 @@ class _SwitchInputWidgetState extends State<SwitchInputWidget> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(widget.label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: _enabled == 1 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary)),
+            Text(widget.label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: _enabled == 1 ? Theme.of(context).colorScheme.primary : GlobalColors().grey)),
             Container(
               alignment: _enabled == 1 ? Alignment.centerRight : Alignment.centerLeft,
               width: (Units().spacing / 2) * 3,
               padding: EdgeInsets.all(Units().spacing / 6),
-              decoration: BoxDecoration(color: _enabled == 1 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary, borderRadius: BorderRadius.circular(Units().spacing)),
+              decoration: BoxDecoration(color: _enabled == 1 ? Theme.of(context).colorScheme.primary : GlobalColors().grey, borderRadius: BorderRadius.circular(Units().spacing)),
               child: Container(
                 width: Units().spacing / 2,
                 height: Units().spacing / 2,

@@ -11,9 +11,10 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class ImageInputWidget extends StatefulWidget {
   final String label;
-  final Function(String) onChange;
+  final String name;
+  final Function(String key, dynamic value) onChange;
 
-  const ImageInputWidget({super.key, required this.label, required this.onChange});
+  const ImageInputWidget({super.key, required this.label, required this.name, required this.onChange});
 
   @override
   State<ImageInputWidget> createState() => _ImageInputWidgetState();
@@ -27,7 +28,7 @@ class _ImageInputWidgetState extends State<ImageInputWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => showModal(context, 'Capture Card', ModalBody(onChange: widget.onChange, imagePathChange: _imagePathChange)),
+      onTap: () => showModal(context, 'Capture Card', ModalBody(name: widget.name, onChange: widget.onChange, imagePathChange: _imagePathChange)),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
         decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(Units().borderRadius)),
@@ -36,9 +37,9 @@ class _ImageInputWidgetState extends State<ImageInputWidget> {
           children: [
             Row(
               children: [
-                Icon(_imagePath != null ? PhosphorIcons.fill.camera : PhosphorIcons.light.camera, color: _imagePath != null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary, size: 24),
+                Icon(_imagePath != null ? PhosphorIcons.fill.camera : PhosphorIcons.light.camera, color: _imagePath != null ? Theme.of(context).colorScheme.primary : GlobalColors().grey, size: 24),
                 SizedBox(width: Units().spacing / 2),
-                Text(_imagePath != null ? "Card captured" : widget.label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: _imagePath != null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiary)),
+                Text(_imagePath != null ? "Card captured" : widget.label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: _imagePath != null ? Theme.of(context).colorScheme.primary : GlobalColors().grey)),
               ],
             ),
             if (_imagePath != null) SizedBox(height: Units().spacing / 2),
@@ -60,7 +61,7 @@ class ImagePreview extends StatelessWidget {
     return Container(
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).colorScheme.tertiary, strokeAlign: BorderSide.strokeAlignOutside),
+        border: Border.all(color: GlobalColors().grey, strokeAlign: BorderSide.strokeAlignOutside),
         borderRadius: BorderRadius.circular(Units().borderRadius),
       ),
       child: AspectRatio(aspectRatio: Units().cardAspectRatio, child: Image.file(File(_imagePath!), fit: BoxFit.fitWidth)),
@@ -69,10 +70,11 @@ class ImagePreview extends StatelessWidget {
 }
 
 class ModalBody extends StatefulWidget {
-  final Function(String) onChange;
+  final String name;
+  final Function(String key, dynamic value) onChange;
   final Function(String) imagePathChange;
 
-  const ModalBody({super.key, required this.onChange, required this.imagePathChange});
+  const ModalBody({super.key, required this.name, required this.onChange, required this.imagePathChange});
 
   @override
   State<ModalBody> createState() => _ModalBodyState();
@@ -98,7 +100,7 @@ class _ModalBodyState extends State<ModalBody> {
       Directory directory = await getApplicationDocumentsDirectory();
       await _cameraController.takePicture().then((image) {
         image.saveTo("${directory.path}/${image.name}");
-        widget.onChange("${directory.path}/${image.name}");
+        widget.onChange(widget.name, "${directory.path}/${image.name}");
         widget.imagePathChange("${directory.path}/${image.name}");
         Navigator.pop(context);
       });
@@ -127,7 +129,7 @@ class _ModalBodyState extends State<ModalBody> {
         Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
-            border: Border.all(color: Theme.of(context).colorScheme.tertiary, strokeAlign: BorderSide.strokeAlignOutside),
+            border: Border.all(color: GlobalColors().grey, strokeAlign: BorderSide.strokeAlignOutside),
             borderRadius: BorderRadius.circular(Units().borderRadius),
           ),
           child: AspectRatio(aspectRatio: Units().cardAspectRatio, child: CameraPreview(_cameraController)),

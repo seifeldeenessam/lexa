@@ -9,11 +9,10 @@ InputDecorationTheme lightInputDecorationTheme() {
     fillColor: LightThemeColors().onBackground,
     errorMaxLines: 1,
     contentPadding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
-    // Text styles
-    hintStyle: lightTextTheme().labelSmall?.copyWith(color: LightThemeColors().tertiary),
-    errorStyle: lightTextTheme().labelSmall?.copyWith(color: GlobalColors().error),
-    // Borders
+    hintStyle: lightTextTheme().labelMedium?.copyWith(color: GlobalColors().grey),
+    errorStyle: lightTextTheme().labelSmall?.copyWith(color: GlobalColors().red),
     enabledBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
+    disabledBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
     errorBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
     focusedBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
     focusedErrorBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
@@ -27,11 +26,10 @@ InputDecorationTheme darkInputDecorationTheme() {
     fillColor: DarkThemeColors().onBackground,
     errorMaxLines: 1,
     contentPadding: EdgeInsets.symmetric(horizontal: Units().spacing / 2, vertical: Units().spacing - 8),
-    // Text styles
-    hintStyle: lightTextTheme().labelSmall?.copyWith(color: DarkThemeColors().tertiary),
-    errorStyle: lightTextTheme().labelSmall?.copyWith(color: GlobalColors().error),
-    // Borders
+    hintStyle: lightTextTheme().labelMedium?.copyWith(color: GlobalColors().grey),
+    errorStyle: lightTextTheme().labelSmall?.copyWith(color: GlobalColors().red),
     enabledBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
+    disabledBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
     errorBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
     focusedBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),
     focusedErrorBorder: OutlineInputBorder(borderSide: const BorderSide(color: Colors.transparent), borderRadius: BorderRadius.circular(Units().borderRadius)),

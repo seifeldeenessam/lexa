@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 
 class TextInputWidget extends StatelessWidget {
   final String label;
-  final Function(dynamic) onChange;
+  final String name;
+  final Function(String, dynamic, bool) onChange;
   final Function(String?)? validator;
   final String? keyboardType;
-  final bool? paragraph;
   final Widget? suffix;
+  final bool? paragraph;
+  final bool? parse;
 
   const TextInputWidget({
     super.key,
     required this.label,
+    required this.name,
     required this.onChange,
     this.validator,
     this.keyboardType,
     this.paragraph,
     this.suffix,
+    this.parse = false,
   });
 
   @override
@@ -26,13 +30,17 @@ class TextInputWidget extends StatelessWidget {
       autocorrect: false,
       enableSuggestions: false,
       textInputAction: TextInputAction.next,
-      onChanged: (value) => onChange(value),
+      onChanged: (value) => onChange(name, value, parse!),
       scrollPhysics: const BouncingScrollPhysics(),
       cursorColor: Theme.of(context).colorScheme.primary,
       validator: (value) => validator!(value),
       keyboardType: keyboardType == "number" ? TextInputType.number : TextInputType.text,
       style: Theme.of(context).textTheme.labelSmall,
-      decoration: InputDecoration(hintText: label, suffix: suffix),
+      decoration: InputDecoration(
+        hintMaxLines: 1,
+        hintText: label,
+        suffix: suffix,
+      ),
     );
   }
 }

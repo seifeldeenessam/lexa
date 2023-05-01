@@ -1,14 +1,11 @@
-import 'package:lexa/utilities/app_texts.dart';
-import 'package:lexa/widgets/guiding_paragraph.dart';
+import 'package:lexa/viewmodels/authentication.dart';
+import 'package:lexa/widgets/guiding_text.dart';
 import 'package:lexa/utilities/constants.dart';
-import 'package:lexa/validators/email_validator.dart';
-import 'package:lexa/validators/name_validator.dart';
-import 'package:lexa/validators/password_validator.dart';
 import 'package:lexa/widgets/app_bar.dart';
 import 'package:lexa/widgets/button.dart';
-import 'package:lexa/widgets/inputs/text.dart';
-import 'package:lexa/widgets/inputs/password.dart';
 import 'package:flutter/material.dart';
+import 'package:lexa/widgets/inputs/password.dart';
+import 'package:lexa/widgets/inputs/text.dart';
 
 class PersonalInfoEntryScreen extends StatefulWidget {
   const PersonalInfoEntryScreen({super.key});
@@ -19,29 +16,44 @@ class PersonalInfoEntryScreen extends StatefulWidget {
 
 class _PersonalInfoEntryScreenState extends State<PersonalInfoEntryScreen> {
   final _formKey = GlobalKey<FormState>();
-  final Map<String, dynamic> _personalInfo = {
-    "name": null,
-    "email": null,
-    "password": null,
-  };
+  late final Map<String, dynamic> _data;
 
-  void _nameChange(value) => setState(() => _personalInfo["name"] = value);
-  void _emailChange(value) => setState(() => _personalInfo["email"] = value);
-  void _passwordChange(value) => setState(() => _personalInfo["password"] = value);
+  void _handleChange(String name, dynamic value, bool parse) {
+    setState(() => _data[name] = parse ? num.parse(value) : value);
+  }
 
-  void _submit(BuildContext context, GlobalKey<FormState> formkey, Map<String, dynamic> personalInfo) {
-    if (formkey.currentState!.validate()) Navigator.pushNamed(context, '/passcode-creation');
+  String? _nameValidator(String? name) {
+    if (name == null || name.isEmpty) return "Name can't be empty";
+    if (!RegExp(r'^[a-z A-Z ا-ي]+$').hasMatch(name)) return "Invalid name";
+    return null;
+  }
+
+  String? _emailValidator(String? email) {
+    if (email == null || email.isEmpty) return "Email can't be empty";
+    if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email)) return "Invalid email";
+    return null;
+  }
+
+  String? _passwordValidator(String? password) {
+    if (password == null || password.isEmpty) return "Password can't be empty";
+    return null;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _data = {"name": null, "email": null, "password": null};
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: AppTexts().personalInfoScreenTitle)),
+      appBar: PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight), child: AppBarWidget(title: PersonalInfoViewModel().title)),
       body: Padding(
         padding: EdgeInsets.all(Units().spacing),
         child: Column(
           children: [
-            GuidingParagragh(subTitle: AppTexts().personalInfoScreenSubTitle, paragraph: AppTexts().personalInfoScreenParagraph),
+            GuidingText(subTitle: PersonalInfoViewModel().subTitle, paragraph: PersonalInfoViewModel().paragraph),
             Expanded(
               child: Form(
                 key: _formKey,
@@ -49,13 +61,13 @@ class _PersonalInfoEntryScreenState extends State<PersonalInfoEntryScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextInputWidget(label: "Full name", onChange: _nameChange, validator: nameValidator),
+                    TextInputWidget(label: "Full name", name: "name", onChange: _handleChange, validator: _nameValidator),
                     SizedBox(height: Units().spacing / 2),
-                    TextInputWidget(label: "E-mail", onChange: _emailChange, validator: emailValidator),
+                    TextInputWidget(label: "E-mail", name: "email", onChange: _handleChange, validator: _emailValidator),
                     SizedBox(height: Units().spacing / 2),
-                    PasswordInputWidget(placeholder: "Password", onChange: _passwordChange, validator: passwordValidator),
+                    PasswordInputWidget(placeholder: "Password", name: "password", onChange: _handleChange, validator: _passwordValidator),
                     SizedBox(height: Units().spacing),
-                    ButtonWidget(action: () => _submit(context, _formKey, _personalInfo), label: "Continue"),
+                    ButtonWidget(action: () => PersonalInfoViewModel().submit(context, _formKey, _data), label: "Continue"),
                   ],
                 ),
               ),

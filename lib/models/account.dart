@@ -9,7 +9,7 @@ class Account {
 
   Account({required this.id, required this.title, required this.currency, required this.value, this.transactions});
 
-  factory Account.fromJSON(Map<String, Object?> json) {
+  factory Account.fromJSON(Map<String, dynamic> json) {
     return Account(
       id: json["id"] as int,
       title: json["title"] as String,
@@ -19,5 +19,5 @@ class Account {
     );
   }
 
-  Map<String, Object?> toJSON() => {"id": id, "title": title, "currency": currency, "value": value};
+  Map<String, dynamic> toJSON() => {"id": id, "title": title, "currency": currency, "value": value};
 }

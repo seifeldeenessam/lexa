@@ -11,7 +11,7 @@ import 'package:lexa/views/settings/settings_screen.dart';
 
 Map<String, WidgetBuilder> get routesHandler {
   return {
-    '/intoduction': (context) => const IntroductionScreen(),
+    '/introduction': (context) => const IntroductionScreen(),
     '/auth': (context) => const SignInScreen(),
     '/auth/phone-number/enter': (context) => const SignUpScreen(),
     '/auth/phone-number/verify': (context) => const PhoneVerifyScreen(),
